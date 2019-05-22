@@ -1,0 +1,172 @@
+/*=========== RESET ==========*/
+
+
+* {
+    margin: 0; 
+    padding: 0; 
+    font-size: 100%; 
+    border: none; 
+    outline: none; 
+    font-weight: 300; 
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.center{
+    margin: 0 auto;
+    width: 50%; /* Altere para o valor da largura desejada. */
+}
+body{
+    overflow: hidden;
+}
+.table-overflow-responsive {
+    overflow-y:auto;
+}
+/* ========== MOBILE FIRST ==========*/
+/* SMALL DEVICES - SMARTPHONES */
+@media screen and (min-height: 242px) {
+    .table-overflow-responsive {
+        max-height: 162px;
+    }
+}
+@media screen and (min-height: 320px) {
+    .table-overflow-responsive {
+        max-height: 240px;
+    }
+}
+@media screen and (min-height: 480px) {
+    .table-overflow-responsive {
+        max-height:400px;
+    }
+}
+@media screen and (min-height: 540px) {
+    .table-overflow-responsive {
+        max-height:460px;
+    }
+}
+@media screen and (min-height: 600px) {
+    .table-overflow-responsive {
+        max-height:520px;
+    }
+}
+@media screen and (min-height: 640px) {
+    .table-overflow-responsive {
+        max-height:560px;
+    }
+}
+@media screen and (min-height: 720px) {
+    .table-overflow-responsive {
+        max-height: 640px;
+    }
+}
+@media screen and (min-height: 768px) {
+    .table-overflow-responsive {
+        max-height: 688px;
+    }
+}
+/* SMALL DEVICES - TABLETS*/
+@media screen and (min-height: 800px) {
+    .table-overflow-responsive {
+        max-height:720px;
+    }
+}
+
+@media screen and (min-height: 900px) {
+    .table-overflow-responsive {
+        max-height:820px;
+    }
+}
+/* MEDIUM DEVICES - TABLETS & DESKTOPS*/
+@media screen and (min-height: 1050px) {
+    .table-overflow-responsive {
+        max-height:970px;
+    }
+}
+/* LARGE DEVICES - WIDE SCREENS*/
+@media screen and (min-height: 1080px) {
+    .table-overflow-responsive {
+        max-height:990px;
+    }
+}
+@media screen and (min-height: 1536px) {
+    .table-overflow-responsive {
+        max-height:1456px;
+    }
+}
+@media screen and (min-height: 1440px) {
+    .table-overflow-responsive {
+        max-height:1360px;
+    }
+}
+@media screen and (min-height: 1480px) {
+    .table-overflow-responsive {
+        max-height:1400px;
+    }
+}
+@media screen and (min-height: 2160px) {
+    .table-overflow-responsive {
+        max-height:2080px;
+    }
+}
+
+@media screen and (min-height: 1580px) {
+    .table-overflow-responsive {
+        max-height:1500px;
+    }
+}
+@media screen and (min-height: 1680px) {
+    .table-overflow-responsive {
+        max-height:1600px;
+    }
+}
+@media screen and (min-height: 1780px) {
+    .table-overflow-responsive {
+        max-height:1700px;
+    }
+}
+@media screen and (min-height: 1880px) {
+    .table-overflow-responsive {
+        max-height:1800px;
+    }
+}
+@media screen and (min-height: 1980px) {
+    .table-overflow-responsive {
+        max-height:1900px;
+    }
+}
+@media screen and (min-height: 2080px) {
+    .table-overflow-responsive {
+        max-height:2000px;
+    }
+}
+@media screen and (min-height: 2180px) {
+    .table-overflow-responsive {
+        max-height:2100px;
+    }
+}
+@media screen and (min-height: 2280px) {
+    .table-overflow-responsive {
+        max-height:2200px;
+    }
+}
+@media screen and (min-height: 2370px) {
+    .table-overflow-responsive {
+        max-height:2290px;
+    }
+}
+@media screen and (min-height: 2480px) {
+    .table-overflow-responsive {
+        max-height:2400px;
+    }
+}
+@media screen and (min-height: 4320px) {
+    .table-overflow-responsive {
+        max-height:4240px;
+    }
+}
+@media screen and (min-height: 7750px) {
+    .table-overflow-responsive {
+        max-height:7670px;
+    }
+}
