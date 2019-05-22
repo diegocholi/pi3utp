@@ -13,7 +13,7 @@ $(document).ready(function () {
         e.preventDefault();
         var tipoCampo = "aluno";
         adicionaCampo(tipoCampo);
-    })
+    });
 
     function adicionaCampo(tipo) {
         idContador++;
@@ -56,7 +56,7 @@ $(document).ready(function () {
             }
         });
 
-        if (camposNulos == true) {
+        if (camposNulos === true) {
             alert("Atenção: existem campos nulos");
         } else {
             alert("Novos campos adicionados: \n\n " + mensagem);

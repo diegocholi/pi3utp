@@ -23,7 +23,7 @@ if (isset($_SESSION['usuario']))
         <br>
         <br>
         <h5>Cadastro de Equipes</h5>
-        <form onsubmit="return enviar();">
+        <form>
             <div class="border border-dark" >
                 <br>
                 <!--Formulário de configuração de cadastro de equipes-->
