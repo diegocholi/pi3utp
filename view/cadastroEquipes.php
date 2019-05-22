@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="../controller/cadastroEquipesController.css">
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -12,7 +11,7 @@ if (isset($_SESSION['usuario']))
     <br>
     <div class="cadastroEquipes">
 
-        <a href="#" class="CliqueBuscaEquipes btn btn-dark" 
+        <a onclick='navigate("buscaEquipes");' class="btn btn-dark" 
            style=" text-decoration: none; 
            color : #EFFBFB;
            font-family: Verdana, Helvetica, sans-serif;
@@ -70,8 +69,6 @@ if (isset($_SESSION['usuario']))
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Enviar</button>
-
-
         </form> 
 
     </div>

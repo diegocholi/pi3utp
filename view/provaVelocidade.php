@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../controller/provaVelocidadeController.css">
 <?php
 
 /* 
@@ -14,7 +13,6 @@ if(isset($_SESSION['usuario'])){
         Prova Velocidade
     </div>
 
-<script src="../controller/provaVelocidadeController.js"></script>
         <?php
 } else {
     header('Location: ../login.php');

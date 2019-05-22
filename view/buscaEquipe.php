@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../controller/buscaEquipeController.css">
 <?php
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,7 +20,7 @@ if (isset($_SESSION['usuario']))
                 </form>
             </div>
             <div class = "col-md-2 col-md-offset-3 bg-light table-overflow-responsive">
-                <a href="#" class="btn btn-primary CliqueCadastroEquipes">Adicionar Equipe ➕</a>
+                <a href="#" onclick="navigate('cadastroEquipe');"  class="btn btn-primary">Adicionar Equipe ➕</a>
             </div>
         </div>
         <br>

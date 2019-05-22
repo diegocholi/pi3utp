@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22/05/2019, 17:35:00
+    Author     : diego
+*/
+
+.provaVelocidade{
+    display: none;
+}
+
+.provaTracao{
+    display: none;
+}
+
+.provaRampa{
+    display: none;
+}
+
+.provaPista{
+    display: none;
+}
+
+.configuracaoProvas{
+    display: none;
+}
+
+.cadastroEquipes{
+    display:none;
+}
+
+.buscaEquipe{
+    display: none;
+}

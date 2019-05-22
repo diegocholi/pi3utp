@@ -29,8 +29,8 @@ class Menu {
                             ⚙️ Configurações
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item CliqueConfiguracaoProvas" target="_blank" href='javascript:void(0)'>📃 Provas</a>
-                            <a class="dropdown-item CliqueBuscaEquipes" target="_blank" href='javascript:void(0)'>📝 Equipes</a>
+                            <a onclick="navigate('configuracaoProvas');" class="dropdown-item" target="_blank" href='javascript:void(0)'>📃 Provas</a>
+                            <a onclick="navigate('buscaEquipes');" class="dropdown-item" target="_blank" href='javascript:void(0)'>📝 Equipes</a>
                         </div>
                     </li>
                 </ul>
@@ -51,10 +51,10 @@ class Menu {
         <div class="btn-group-vertical">
             <form>
                 <br>
-                <a type="button" class="ClickProvaRampa btn btn-primary btn-lg btn-block" ><h6>↗️ Rampa</h6></a>
-                <a type="button" class="ClickProvaTracao btn btn-primary btn-lg btn-block"><h6>⛓ Tração</h6></a>
-                <a type="button" class="ClickProvaVelocidade btn btn-primary btn-lg btn-block"><h6>🏎 Velocidade</h6></a>
-                <a type="button" class="ClickProvaPista btn btn-primary btn-lg btn-block"><h6>🔱 Pista e Manobrabilidade</h6></a>
+                <a type="button" onclick="navigate('provaRampa');" class="ClickProvaRampa btn btn-primary btn-lg btn-block" ><h6>↗️ Rampa</h6></a>
+                <a type="button" onclick="navigate('provaTracao');" class="btn btn-primary btn-lg btn-block"><h6>⛓ Tração</h6></a>
+                <a type="button" onclick="navigate('provaVelocidade');" class="btn btn-primary btn-lg btn-block"><h6>🏎 Velocidade</h6></a>
+                <a type="button" onclick="navigate('provaPista');" class="btn btn-primary btn-lg btn-block"><h6>🔱 Pista e Manobrabilidade</h6></a>
             </form>
         </div>
         <?php
