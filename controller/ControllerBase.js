@@ -5,24 +5,14 @@
  */
 function navigate(navigate) {
     
-    if ($(".cadastroEquipes").css("display", "block")
-            || $(".configuracaoProvas").css("display", "block")
-            || $(".provaRampa").css("display", "block")
-            || $(".provaTracao").css("display", "block")
-            || $(".provaPista").css("display", "block")
-            || $(".buscaEquipe").css("display", "block")
-            || $(".provaVelocidade").css("display", "block")
-            || $(".cadastroEquipes").css("display", "block")
-            ) {
-        $(".buscaEquipe").css("display", "none");
-        $(".cadastroEquipes").css("display", "none");
-        $(".configuracaoProvas").css("display", "none");
-        $(".provaRampa").css("display", "none");
-        $(".provaTracao").css("display", "none");
-        $(".provaPista").css("display", "none");
-        $(".provaVelocidade").css("display", "none");
-        $(".cadastroEquipes").css("display", "none")
-    }
+    $(".buscaEquipe").css("display", "none");
+    $(".cadastroEquipes").css("display", "none");
+    $(".configuracaoProvas").css("display", "none");
+    $(".provaRampa").css("display", "none");
+    $(".provaTracao").css("display", "none");
+    $(".provaPista").css("display", "none");
+    $(".provaVelocidade").css("display", "none");
+    $(".cadastroEquipes").css("display", "none");
 
     switch (navigate) {
         case  "provaVelocidade":
@@ -44,8 +34,8 @@ function navigate(navigate) {
             $(".configuracaoProvas").css("display", "block");
             break;
         case "cadastroEquipe":
-                $(".cadastroEquipes").css("display", "block");
-        break;
+            $(".cadastroEquipes").css("display", "block");
+            break;
         default:
             break;
     }
