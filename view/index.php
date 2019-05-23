@@ -26,7 +26,7 @@
             $menu->MenuPrincipal();
             ?>
             <div class = "row bg-dark">
-                <div class = "col-md-2  bg-secondary text-light" align='center' >
+                <div class = "col-md-2 text-light colorLeft" align='center' >
                     <!--Alinhado a esquerda-->
                     <br>
                     <?php
@@ -35,7 +35,7 @@
                     <br>
                 </div>
                 <!--Alinhado ao centro-->
-                <div class = "col-md-8 col-md-offset-3 bg-light table-overflow-responsive">
+                <div class = "col-md-8 colorCenter table-overflow-responsive" >
                     <?php
                     include_once 'confProvas.php';
                     include_once 'cadastroEquipes.php';
@@ -46,7 +46,7 @@
                     include_once 'buscaEquipe.php';
                     ?>
                 </div>
-                <div class = "col-md-2 bg-secondary table-overflow-responsive" align="center">
+                <div class = "col-md-2 colorRight" align="center">
                     <!--Alinhado a direita-->
                     <br>
                     <h5 align='center' class="text-light">Ranking</h5>

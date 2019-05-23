@@ -11,11 +11,7 @@ if (isset($_SESSION['usuario']))
     <br>
     <div class="cadastroEquipes">
 
-        <a onclick='navigate("buscaEquipes");' class="btn btn-dark" 
-           style=" text-decoration: none; 
-           color : #EFFBFB;
-           font-family: Verdana, Helvetica, sans-serif;
-           font-weight: bold;"
+        <a onclick='navigate("buscaEquipes");' class="btn btn-dark text-light" 
            title="Voltar">
             <img src="../fotoSistema/voltar.png" width="20" height="20"> 
             Voltar

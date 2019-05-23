@@ -10,7 +10,7 @@ class Menu {
     public function MenuPrincipal()
     {
         ?>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary custom">
+        <nav class="navbar navbar-expand-lg bg-primary custom">
             <a class="navbar-brand" href="index.php" style="color:#000001">
                 <img src="fotoSistema/logo.png" height="30px">
                 PI lll
@@ -22,19 +22,18 @@ class Menu {
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">🏠 Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link  text-dark" href="index.php">🏠 Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="text-dark nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             ⚙️ Configurações
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a onclick="navigate('configuracaoProvas');" class="dropdown-item" target="_blank" href='javascript:void(0)'>📃 Provas</a>
-                            <a onclick="navigate('buscaEquipes');" class="dropdown-item" target="_blank" href='javascript:void(0)'>📝 Equipes</a>
+                            <a onclick="navigate('configuracaoProvas');" class="dropdown-item text-dark" target="_blank" href='javascript:void(0)'>📃 Provas</a>
+                            <a onclick="navigate('buscaEquipes');" class="dropdown-item text-dark" target="_blank" href='javascript:void(0)'>📝 Equipes</a>
                         </div>
                     </li>
                 </ul>
-
             </div>
             &nbsp;&nbsp;&nbsp;
             <form method='get'>

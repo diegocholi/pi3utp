@@ -13,13 +13,13 @@ if (isset($_SESSION['usuario']))
         <h5> Busca Equipe</h5>
 
         <div class = "row">
-            <div class = "col-md-10 col-md-offset-3 bg-light table-overflow-responsive">
+            <div class = "col-md-10 col-md-offset-3 table-overflow-responsive">
                 <form action='javascript:void(0)' class="form-inline" >
                     <input id="buscaCliente" class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="buscaEquipe();">Pesquisar</button>
                 </form>
             </div>
-            <div class = "col-md-2 col-md-offset-3 bg-light table-overflow-responsive">
+            <div class = "col-md-2 col-md-offset-3 table-overflow-responsive">
                 <a href="#" onclick="navigate('cadastroEquipe');"  class="btn btn-primary">Adicionar Equipe ➕</a>
             </div>
         </div>
