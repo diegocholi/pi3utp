@@ -29,9 +29,9 @@
                 <div class = "col-md-2  bg-secondary text-light" align='center' >
                     <!--Alinhado a esquerda-->
                     <br>
-                       <?php
-                            $menu->MenuLateral();
-                       ?>
+                    <?php
+                    $menu->MenuLateral();
+                    ?>
                     <br>
                 </div>
                 <!--Alinhado ao centro-->
