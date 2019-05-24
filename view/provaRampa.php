@@ -10,7 +10,7 @@ if (isset($_SESSION['usuario']))
     ?>
 
     <div class="provaRampa">    
-        Prova Rampa
+        <h1>Prova Rampa</h1>
 
         <form action="javascript:void(0)">
             <div class="form-group row">

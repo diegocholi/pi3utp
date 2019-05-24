@@ -11,7 +11,7 @@ if (isset($_SESSION['usuario']))
     ?>
 
     <div class="provaVelocidade">    
-        Prova Velocidade
+        <h1>Prova Velocidade</h1>
         <form>
             <div class="form-group row">
                 <label for="example-number-input" class="col-2 col-form-label">Distância(m) </label>

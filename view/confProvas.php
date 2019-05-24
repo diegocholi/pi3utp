@@ -10,7 +10,7 @@ if (isset($_SESSION['usuario'])) {
     <div class="configuracaoProvas">
         <!--Formulário de configuração de provas-->
         <br>
-        <h4>Configuração de Provas</h4>
+        <h1>Configuração de Provas</h1>
         <form> 
             <div class="border border-dark" >
                 <div class="border border-dark">

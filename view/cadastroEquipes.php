@@ -18,7 +18,7 @@ if (isset($_SESSION['usuario']))
         </a>
         <br>
         <br>
-        <h5>Cadastro de Equipes</h5>
+        <h1>Cadastro de Equipes</h1>
         <form>
             <div class="border border-dark" >
                 <br>

@@ -10,7 +10,7 @@ if (isset($_SESSION['usuario']))
     ?>
 
     <div class="provaPista">    
-        Prova Pista & Manobrabilidade
+        <h1>Prova Pista & Manobrabilidade</h1>
         <form>
             <div class="form-group row">
                 <label for="example-number-input" class="col-2 col-form-label">Distância(m) </label>
@@ -27,7 +27,7 @@ if (isset($_SESSION['usuario']))
             </div>
 
             <div class="form-group row">
-                <label for="example-number-input" class="col-2 col-form-label">Tempo(s) </label>
+                <label for="example-number-input" class="col-2 col-form-label">Penalidade(s) </label>
                 <select class="form-control" id="exampleFormControlSelect1">
                     <option>1</option>
                     <option>2</option>

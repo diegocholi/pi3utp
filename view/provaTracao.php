@@ -10,7 +10,7 @@ if (isset($_SESSION['usuario']))
     ?>
 
     <div class="provaTracao">    
-        Prova Tracao
+        <h1>Prova Tracao</h1>
         <form>
             <div class="form-group row">
                 <label for="example-number-input" class="col-2 col-form-label">Peso(g) </label>

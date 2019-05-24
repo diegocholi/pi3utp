@@ -10,30 +10,29 @@
 
 
 
-        if (isset($_GET['sair'])) {
+        if (isset($_GET['sair']))
+        {
             session_destroy();
         }
         ?>
 
-    <title>Home</title>
+        <title>Home</title>
     </head>
     <body>
-        <div class = "row bg-dark">
-            <div class = "col-md-8 col-md-offset-3 table-overflow-responsive bg-secondary text-light">
-                <!--Alinhado a esquerda-->      
-                <p align="center">Anúncios</p>
+        <br><br><br>
+        <div class = "row table-overflow-responsive">
+            <div class="col">
+                <!-- div de alinhamento-->
             </div>
-
-            <div class = "col-md-4 col-md-offset-3 bg-light table-overflow-responsive">
-                <!--Alinhado ao direita-->
-                <br>
+            <div class="col-md-6 login containerLogin">
+                <h1>Login</h1>
                 <form method='post' action='index.php'>
                     <div class="form-group">
-                        <label for="exampleInputEmail1" align='center'>Usuário</label>
+                        <label align='center'>Seu  Usuário</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Usuário" name='usuario' required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Senha</label>
+                        <label for="exampleInputPassword1">Sua  Senha</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                     </div>
                     <div class="checkbox">
@@ -43,10 +42,16 @@
                     </div>
                     <button type="submit" class="btn btn-dark" name='subimit'>Entrar</button>
                 </form>
+                <br>
+            </div>
+            <div class="col">
+                <!-- div de alinhamento-->
             </div>
         </div>
         <?php
         $rodape = new Rodape();
         ?>
     </body>
+
 </html>
+

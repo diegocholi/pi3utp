@@ -25,7 +25,7 @@
             $menu = new Menu();
             $menu->MenuPrincipal();
             ?>
-            <div class = "row bg-dark">
+            <div class = "row">
                 <div class = "col-md-2 text-light colorLeft" align='center' >
                     <!--Alinhado a esquerda-->
                     <br>

@@ -10,7 +10,7 @@ if (isset($_SESSION['usuario']))
     ?>
 
     <div class="buscaEquipe">    
-        <h5> Busca Equipe</h5>
+        <h1> Busca Equipe</h1>
 
         <div class = "row">
             <div class = "col-md-10 col-md-offset-3 table-overflow-responsive">
