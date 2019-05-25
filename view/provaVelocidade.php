@@ -6,10 +6,9 @@
  * and open the template in the editor.
  */
 
-if (isset($_SESSION['usuario']))
+if (isset($_SESSION['user']))
 {
     ?>
-
     <div class="provaVelocidade">    
         <h1>Prova Velocidade</h1>
         <form action="javascript:void(0)">

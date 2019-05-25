@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
+
 function navigate(navigate) {
-    
     $(".buscaEquipe").css("display", "none");
     $(".cadastroEquipes").css("display", "none");
     $(".configuracaoProvas").css("display", "none");
@@ -16,6 +18,7 @@ function navigate(navigate) {
 
     switch (navigate) {
         case  "provaVelocidade":
+
             $(".provaVelocidade").css("display", "block");
             break;
         case "provaPista":

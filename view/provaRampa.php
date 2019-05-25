@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-if (isset($_SESSION['usuario']))
+if (isset($_SESSION['user']))
 {
     ?>
 

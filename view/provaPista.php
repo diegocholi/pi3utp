@@ -5,20 +5,13 @@
  * and open the template in the editor.
  */
 
-if (isset($_SESSION['usuario']))
+if (isset($_SESSION['user']))
 {
     ?>
     <div class="provaPista">    
         <h1>Prova Pista & Manobrabilidade</h1>
         <form action="javascript:void(0)">
             <h4>Desempenho</h4>
-            <div class="form-group row">
-                <label for="example-number-input" class="col-2 col-form-label">Distância(m) </label>
-                <div class="col-10">
-                    <input class="form-control" type="number" id="example-number-input">
-                </div>
-            </div>
-
             <div class="form-group row">
                 <label for="example-number-input" class="col-2 col-form-label">Tempo(s) </label>
                 <div class="col-10">

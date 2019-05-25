@@ -8,19 +8,13 @@
         include_once 'required/includes.php';
         include_once 'required/Menu.php';
         include_once 'required/Rodape.php';
-
-        if (isset($_POST['usuario']))
-        {
-            $_SESSION['usuario'] = $_POST['usuario'];
-        }
         ?>
         <title>PI lll</title>
     </head>
     <body>
 
-
         <?php
-        if (isset($_SESSION['usuario']))
+        if (isset($_SESSION['user']))
         {
             $menu = new Menu();
             $menu->MenuPrincipal();
@@ -45,7 +39,7 @@
                     include_once 'provaPista.php';
                     include_once 'buscaEquipe.php';
                     ?>
-                    
+
                 </div>
                 <div class = "col-md-2 colorRight" align="center">
                     <!--Alinhado a direita-->

@@ -7,6 +7,27 @@
         include_once 'required/includes.php';
         include_once 'required/Menu.php';
         include_once 'required/Rodape.php';
+        include_once 'model/LoginModel.php';
+        include_once 'DataBaseConf.php';
+        include_once 'mensagens/mensage.php';
+
+        //lógica de Login
+        if (isset($_POST['usuario']))
+        {
+            $login = new LoginModel($_POST['usuario'], $_POST['password'], $con);
+            $statusLogin = $login->getStatusLogin();
+
+            if ($statusLogin == true)
+            {
+                header('Location: index.php');
+            }
+            else
+            {
+                erroLoginMensage();
+            }
+        }
+
+        //lógica de saída
         if (isset($_GET['sair']))
         {
             session_destroy();
@@ -22,16 +43,16 @@
             <div class="col">
                 <!-- div de alinhamento-->
             </div>
-            <div class="col-md-6 login containerLogin transbox backgroundOpacy" onmouseover="shine();"  id="shine" >
+            <div class="col-md-6 login containerLogin transbox backgroundOpacy" onmouseover="shine();" onmouseout="turnOff();" id="shine" >
                 <h1>Login</h1>
-                <form method='post' action='index.php'>
+                <form method='post' action='login.php'>
                     <div class="form-group">
                         <label align='center'>Seu  Usuário</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Usuário" name='usuario' required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Sua  Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name='password' required>
                     </div>
                     <br>
                     <div align="right">
@@ -44,6 +65,8 @@
                 <!-- div de alinhamento-->
             </div>
         </div>
+
+
     </body>
 
 </html>

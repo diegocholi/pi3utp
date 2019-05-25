@@ -6,8 +6,9 @@
 
 function shine() {
     document.getElementById("shine").style.opacity = "1";
+    $(".erroMensage").css("display", "none");
 }
 
 function turnOff(){
-    document.getElementById("shine").style.opacity = "0.5";
+    // document.getElementById("shine").style.opacity = "0.5";
 }
