@@ -23,4 +23,5 @@
 <script src="required/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="required/bootstrap/js/bootstrap.js"></script>
 <script src="../controller/ControllerBase.js"></script>
+<script src="../controller/loginController.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>

@@ -10,7 +10,7 @@ class Menu {
     public function MenuPrincipal()
     {
         ?>
-        <nav class="navbar navbar-expand-lg bg-primary custom">
+        <nav class="navbar navbar-expand-lg bg-primary ">
             <a class="navbar-brand" href="index.php" style="color:#000001">
                 <img src="fotoSistema/logo.png" height="30px">
                 PI lll

@@ -7,9 +7,6 @@
         include_once 'required/includes.php';
         include_once 'required/Menu.php';
         include_once 'required/Rodape.php';
-
-
-
         if (isset($_GET['sair']))
         {
             session_destroy();
@@ -18,13 +15,14 @@
 
         <title>Home</title>
     </head>
-    <body>
+
+    <body class="backgroundLogin">
         <br><br><br>
         <div class = "row table-overflow-responsive">
             <div class="col">
                 <!-- div de alinhamento-->
             </div>
-            <div class="col-md-6 login containerLogin">
+            <div class="col-md-6 login containerLogin transbox backgroundOpacy" onmouseover="shine();"  id="shine" >
                 <h1>Login</h1>
                 <form method='post' action='index.php'>
                     <div class="form-group">
@@ -46,9 +44,6 @@
                 <!-- div de alinhamento-->
             </div>
         </div>
-        <?php
-        $rodape = new Rodape();
-        ?>
     </body>
 
 </html>

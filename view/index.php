@@ -45,6 +45,7 @@
                     include_once 'provaPista.php';
                     include_once 'buscaEquipe.php';
                     ?>
+                    
                 </div>
                 <div class = "col-md-2 colorRight" align="center">
                     <!--Alinhado a direita-->
