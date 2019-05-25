@@ -5,18 +5,19 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['usuario']))
+{
     ?>
     <div class="configuracaoProvas">
         <!--Formulário de configuração de provas-->
         <br>
         <h1>Configuração de Provas</h1>
         <form> 
-            <div class="border border-dark" >
-                <div class="border border-dark">
-                    <h4>&nbsp;Informações gerais</h4>
-                    <label for="exampleFormControlSelect1">&nbsp;&nbsp;Valor máximo de cada prova</label>
-                    <small id="emailHelp" class="form-text text-muted">&nbsp;&nbsp;&nbsp;Será reduzido um ponto da pontuação máxima para cada posição abaixo do primeiro lugar.</small>
+            <h4>Informações gerais</h4>
+
+            <div class="form-group row">
+                <label for="exampleFormControlSelect1" class="col-2 col-form-label">Pontuação máxima</label>
+                <div class="col-10">
                     <select class="form-control" id="exampleFormControlSelect1">
                         <option>5</option>
                         <option>6</option>
@@ -46,26 +47,22 @@ if (isset($_SESSION['usuario'])) {
                         <option>30</option>
                     </select>
                 </div>
-                <div class="border border-dark">
-                    <h4>&nbsp;Manobrabilidade</h4>
-                    <small id="emailHelp" class="form-text text-muted">&nbsp;&nbsp;O valor em segundos será acrecentado a equipe caso houver penalidade.</small>
-                    <label for="exampleFormControlSelect1">&nbsp;&nbsp;&nbsp;Furar o cone</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                    <label for="exampleFormControlSelect1">&nbsp;&nbsp;&nbsp;Bater</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                    <label for="exampleFormControlSelect1">&nbsp;&nbsp;&nbsp;Sair Fora da Pista </label>
+            </div>
+            <div class="form-group row">
+                <div class="col-6">
+                    <!-- div ajuste tela-->
+                </div>
+                <small id="emailHelp" class="form-text text-muted">Será reduzido um ponto da pontuação máxima para cada posição abaixo do primeiro lugar.</small>
+            </div>
+
+
+            <h4>Manobrabilidade</h4>
+
+
+
+            <div class="form-group row">
+                <label for="exampleFormControlSelect1" class="col-2 col-form-label">Furar o cone</label>
+                <div class="col-10">
                     <select class="form-control" id="exampleFormControlSelect1">
                         <option>1</option>
                         <option>2</option>
@@ -75,12 +72,46 @@ if (isset($_SESSION['usuario'])) {
                     </select>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="exampleFormControlSelect1" class="col-2 col-form-label">Bater</label>
+                <div class="col-10">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="exampleFormControlSelect1" class="col-2 col-form-label">Sair Fora da Pista </label>
+                <div class="col-10">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-7">
+                    <!-- div ajuste tela-->
+                </div>
+                <small id="emailHelp" class="form-text text-muted">O valor em segundos será acrecentado a equipe caso houver penalidade.</small>
+            </div>
             <br>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
     <?php
-} else {
+}
+else
+{
     header('Location: ../login.php');
 }
 ?>

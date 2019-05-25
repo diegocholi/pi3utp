@@ -35,12 +35,10 @@
                         <label for="exampleInputPassword1">Sua  Senha</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Lembrar
-                        </label>
+                    <br>
+                    <div align="right">
+                        <button type="submit" class="btn btn-primary" align="right"  name='subimit'>Entrar</button>
                     </div>
-                    <button type="submit" class="btn btn-dark" name='subimit'>Entrar</button>
                 </form>
                 <br>
             </div>
