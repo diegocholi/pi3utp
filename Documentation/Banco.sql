@@ -18,7 +18,9 @@ CREATE TABLE usuario (
 CREATE TABLE equipe (
     idEquipe Integer not null auto_increment,
     nomeEquipe Varchar(50),
-    nomeCarro Char(10),
+    nomeCarro Char(100),
+    cor Char(8),
+    foto Char(100),
    PRIMARY KEY (idEquipe)
 );
 

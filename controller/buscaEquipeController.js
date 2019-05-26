@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$(".deleteEquipe").click(function(){
-   alert("Teste Delete Cliente"); 
+$(".deleteEquipe").click(function () {
+    alert("Teste Delete Cliente");
 });
 
-function buscaEquipe (){
+function buscaEquipe() {
     var buscaEquipe = document.getElementById("buscaCliente");
-    
-    if(buscaEquipe.value != ""){
+
+    if (buscaEquipe.value !== "") {
         alert("Busca: " + buscaEquipe.value);
     }
 }
