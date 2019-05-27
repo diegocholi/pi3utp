@@ -3,6 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var imported = document.createElement('script');
+imported.src = '../mensagens/mensage.js';
+document.head.appendChild(imported);
 
 var originalState = $("#imendaHTMLaluno").clone(); // Salvando o estado original da DIV de id imendaHTMLaluno
 
@@ -38,7 +41,7 @@ $(document).ready(function () {
             idControl++;
             $("#imendaHTML" + tipo).append(html);
         } else {
-            alert('Suporte somente a 21 membros por equipes!');
+            erroQuntEquipeMensage();
         }
     }
 });
@@ -72,7 +75,7 @@ function btnSaveEquipes() {
     document.getElementById('campoDefault').value !== "" ? campoDefault = document.getElementById('campoDefault').value : camposNulos = true;
 
     if (camposNulos === true) {
-        alert("Atenção: existem campos nulos");
+        erroCamposNulosMensage();
     } else {
         // Separando as informações da foto
         inputGroupFile = inputGroupFile.split("\\");

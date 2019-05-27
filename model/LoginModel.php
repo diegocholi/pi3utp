@@ -12,15 +12,18 @@
  * @author diego
  */
 include_once './mensagens/mensage.php';
+include_once 'ModelBase.php';
 
 class LoginModel {
 
     private $statusLogin;
 
 //put your code here
-    public function __construct($login, $senha, $con)
+    public function __construct($login, $senha)
     {
         // **************************** Buscando dados ****************************
+        $getCon = new ModelBase();
+        $con = $getCon->getCon();
         $quary = 'SELECT * FROM usuario WHERE login = :usuario LIMIT 1';
         $select = $con->prepare($quary);
 

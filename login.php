@@ -8,13 +8,12 @@
         include_once 'required/Menu.php';
         include_once 'required/Rodape.php';
         include_once 'model/LoginModel.php';
-        include_once 'model/DataBaseConf.php';
         include_once 'mensagens/mensage.php';
 
         //lógica de Login
         if (isset($_POST['usuario']))
         {
-            $login = new LoginModel($_POST['usuario'], $_POST['password'], $con);
+            $login = new LoginModel($_POST['usuario'], $_POST['password']);
             $statusLogin = $login->getStatusLogin();
 
             if ($statusLogin == true)

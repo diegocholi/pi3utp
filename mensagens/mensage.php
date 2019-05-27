@@ -15,3 +15,7 @@ function erroLoginMensage()
     <?php
 
 }
+
+function cadastroSucessMensage(){
+    echo 'Cadastro realizado com sucesso!';
+}
