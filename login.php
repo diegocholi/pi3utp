@@ -8,7 +8,7 @@
         include_once 'required/Menu.php';
         include_once 'required/Rodape.php';
         include_once 'model/LoginModel.php';
-        include_once 'DataBaseConf.php';
+        include_once 'model/DataBaseConf.php';
         include_once 'mensagens/mensage.php';
 
         //lógica de Login

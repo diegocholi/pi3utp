@@ -17,20 +17,20 @@ if (isset($_SESSION['user']))
             Voltar
         </a>
         <h1>Cadastro de Equipes</h1>
-        <form method="post" action="javascript:void(0)" id="formulario-envia">
+        <form method="post" action="javascript:void(0)" id="formulario-cadastro-equipe">
             <br>
             <!--Formulário de configuração de cadastro de equipes-->
             <div class="form-group row">
                 <label for="example-text-input" class="col-2 col-form-label" >Nome da equipe</label>
                 <div class="col-10">
-                    <input class="form-control " name="nomeEquipe" type="text" placeholder="Este nome será exibido no ranking">
+                    <input class="form-control " id="nomeEquipe" type="text" placeholder="Este nome será exibido no ranking">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="example-text-input" class="col-2 col-form-label">Nome do carro</label>
                 <div class="col-10">
-                    <input class="form-control" name="nomeCarro" type="text" placeholder="Campo Opcional">
+                    <input class="form-control"  id="nomeCarro" type="text" placeholder="Campo Opcional">
                 </div>
             </div>
 
@@ -38,14 +38,14 @@ if (isset($_SESSION['user']))
             <div class="form-group row">
                 <label for="example-color-input" class="col-2 col-form-label">Cor</label>
                 <div class="col-10">
-                    <input class="form-control" name="cor" type="color" value="#563d7c">
+                    <input class="form-control" id="cor" type="color" value="#563d7c">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="example-color-input" class="col-2 col-form-label">Foto do carrinho</label>
                 <div class="col-10">
-                    <input type="file"  class="col-8 btn btn-secondary" name="inputGroupFile">
+                    <input type="file"  class="col-8 btn btn-secondary" id="inputGroupFile">
                     <label for="example-color-input" class="col-form-label text-white bg-dark">
                         &nbsp;
                         upload foto do carrinho
@@ -58,7 +58,7 @@ if (isset($_SESSION['user']))
                 <label for="example-color-input" class="col-2 col-form-label">Nome Aluno</label>
                 <div class="col-10">
                     <a href="#" id="btnAdicionaAluno" class="btn btn-secondary btn-lg btn-block" ><label class="text-light">➕ Add Campo</label></a><br>
-                    <input type="text" class="form-control" name="campoDefault" placeholder="Insira o nome do aluno"/>
+                    <input type="text" class="form-control" id="campoDefault" placeholder="Insira o nome do aluno"/>
                     <div id="imendaHTMLaluno"></div>
                 </div>
             </div>
