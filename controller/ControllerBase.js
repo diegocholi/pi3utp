@@ -3,9 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var originalState;
+function saveStateDiv(divId) {
+    originalState = $(divId).clone();
+}
 
+function setStateDiv(divId) {
+    $(divId).replaceWith(originalState.clone()); // Voltando o estado original da div com id buscaEquipe
+}
 
-
+var saveStatusBuscaEquipe = false;
 function navigate(navigate) {
     $(".buscaEquipe").css("display", "none");
     $(".cadastroEquipes").css("display", "none");
@@ -31,7 +38,14 @@ function navigate(navigate) {
             $(".provaRampa").css("display", "block");
             break;
         case "buscaEquipes":
-            $(".buscaEquipe").css("display", "block");
+            if (saveStatusBuscaEquipe === false) {
+                saveStateDiv('#tableAluno');
+                saveStatusBuscaEquipe = true;
+                $(".buscaEquipe").css("display", "block");
+            } else {
+                setStateDiv('#tableAluno');
+                $(".buscaEquipe").css("display", "block");
+            }
             break;
         case "configuracaoProvas":
             $(".configuracaoProvas").css("display", "block");

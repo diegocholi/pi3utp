@@ -24,13 +24,15 @@ class Menu {
                     <li class="nav-item">
                         <a class="nav-link  text-dark" href="index.php">🏠 Home <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a onclick="navigate('buscaEquipes');" class="nav-link  text-dark" target="_blank" href='javascript:void(0)'>👥 Equipes</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="text-dark nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             ⚙️ Configurações
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a onclick="navigate('configuracaoProvas');" class="dropdown-item text-dark" target="_blank" href='javascript:void(0)'>📃 Provas</a>
-                            <a onclick="navigate('buscaEquipes');" class="dropdown-item text-dark" target="_blank" href='javascript:void(0)'>📝 Equipes</a>
                         </div>
                     </li>
                 </ul>
