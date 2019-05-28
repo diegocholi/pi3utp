@@ -1,17 +1,11 @@
 <?php
-
-/* ====== Configuração DB ======= */
+include_once 'confDB.php';
 
 class ModelBase {
 
     function getCon()
     {
-        $host = "localhost";
-        $dbName = "pi3utp";
-        $user = "root";
-        $password = "";
-
-        $con = new PDO('mysql:host=' . $host . '; dbname=' . $dbName, $user, $password);
+        $con = getConfDB();
         return $con;
     }
 

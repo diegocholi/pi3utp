@@ -27,11 +27,6 @@ class CadastroEquipeModel {
         $getCon = new ModelBase();
         $con = $getCon->getCon();
 
-        foreach ($obj->alunoNovoCampo as $value)
-        {
-            echo $value . ", ";
-        }
-
         $query = 'INSERT INTO equipe (nomeEquipe, nomeCarro, cor, foto) VALUES (:nomeEquipe, :nomeCarro , :cor , :foto)';
         $insert = $con->prepare($query);
         $insert->bindParam(':nomeEquipe', $obj->nomeEquipe, PDO::PARAM_STR, 15);

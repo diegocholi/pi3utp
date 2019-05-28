@@ -14,17 +14,15 @@ if (isset($_SESSION['user']))
 
         <div class = "row">
             <div class = "col-md-10 col-md-offset-3 table-overflow-responsive">
-                <form action='javascript:void(0)' class="form-inline" >
+                <form action="javascript:void(0)"  class="form-inline" method="post" onsubmit="return getAluno('tableAluno')">
                     <input id="buscaCliente" class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="buscaEquipe();">Pesquisar</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Pesquisar</button>
                 </form>
             </div>
             <div class = "col-md-2 col-md-offset-3 table-overflow-responsive">
                 <a href="#" onclick="navigate('cadastroEquipe');"  class="btn btn-primary">Adicionar Equipe ➕</a>
             </div>
         </div>
-        <br>
-
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -35,35 +33,10 @@ if (isset($_SESSION['user']))
                     <th align="center">Deletar</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Clark</td>
-                    <td>Kent</td>
-                    <td align="center">✏️</td>
-                    <td align="center">
-                        <a class="deleteEquipe btn"> ❌ </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>John</td>
-                    <td>Carter</td>
-                    <td align="center">✏️</td>
-                    <td align="center">
-                        <a class="deleteEquipe btn"> ❌ </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Peter</td>
-                    <td>Parker, Solange, Diego, Rafael</td>
-                    <td align="center">✏️</td>
-                    <td align="center">
-                        <a class="deleteEquipe btn"> ❌ </a>
-                    </td>
-                </tr>            
+            <tbody align="center"  id="tableAluno">
+
             </tbody>
+
         </table>
 
     </div>
