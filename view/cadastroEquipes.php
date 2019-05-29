@@ -14,14 +14,14 @@ if (isset($_SESSION['user']))
         <a onclick='navigate("buscaEquipes");' class="btn btn-dark text-light" 
            title="Voltar">
             <img src="../fotoSistema/voltar.png" width="20" height="20"> 
-            Voltar
+            <strong> voltar </strong>
         </a>
         <h1>Cadastro de Equipes</h1>
         <form method="post" action="javascript:void(0)" id="formulario-cadastro-equipe">
             <br>
             <!--Formulário de configuração de cadastro de equipes-->
             <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label" >Nome da equipe</label>
+                <label for="example-text-input" class="col-2 col-form-label" >Nome da equipe*</label>
                 <div class="col-10">
                     <input class="form-control " id="nomeEquipe" type="text" placeholder="Este nome será exibido no ranking">
                 </div>
@@ -53,9 +53,8 @@ if (isset($_SESSION['user']))
                     </label>
                 </div>
             </div>
-
             <div class="form-group row">
-                <label for="example-color-input" class="col-2 col-form-label">Nome Aluno</label>
+                <label for="example-color-input" class="col-2 col-form-label">Nome Aluno*</label>
                 <div class="col-10">
                     <a href="#" id="btnAdicionaAluno" class="btn btn-secondary btn-lg btn-block" ><label class="text-light">➕ Add Campo</label></a><br>
                     <input type="text" class="form-control" id="campoDefault" placeholder="Insira o nome do aluno"/>

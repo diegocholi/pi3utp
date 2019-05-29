@@ -43,9 +43,10 @@ class CrudEquipeModel {
         {
             echo 'ERRO na consulta';
         }
+        // mysql_close($this->con);
     }
 
-    function AddEquipeDB($objCadastroEquipe)
+    function addEquipeDB($objCadastroEquipe)
     {
         $query = 'INSERT INTO equipe (nomeEquipe, nomeCarro, cor, foto) VALUES (:nomeEquipe, :nomeCarro , :cor , :foto)';
         $insert = $this->con->prepare($query);
@@ -79,6 +80,21 @@ class CrudEquipeModel {
             }
             cadastroSucessMensage();
         }
+        // mysql_close($this->con);
+    }
+
+    function deleteEquipe($idEquipeDelete)
+    {
+        try {
+            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $this->con->prepare('DELETE FROM equipe WHERE idEquipe = :id');
+            $stmt->bindParam(':id', $idEquipeDelete);
+            $stmt->execute();
+            echo $stmt->rowCount();
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+        // mysql_close($this->con);
     }
 
 }
@@ -91,12 +107,18 @@ if (isset($_POST['buscaEquipe']))
     $buscaDb->buscaEquipeDB($objBuscaEquipe);
 }
 
-
 if (isset($_POST['insertEquipeJson']))
 {
     /* Recebendo dados input cadastro via AJAX com json */
     $objCadastroEquipe = json_decode($_POST["insertEquipeJson"]);
     $addEquipeDB = new CrudEquipeModel();
-    $addEquipeDB->AddEquipeDB($objCadastroEquipe);
+    $addEquipeDB->addEquipeDB($objCadastroEquipe);
+}
+
+if (isset($_POST['idEquipeDelete']))
+{
+    $idEquipeDelete = $_POST['idEquipeDelete'];
+    $deleteEquipeDB = new CrudEquipeModel();
+    $deleteEquipeDB->deleteEquipe($idEquipeDelete);
 }
 

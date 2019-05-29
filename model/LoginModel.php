@@ -22,15 +22,19 @@ class LoginModel {
     public function __construct($login, $senha)
     {
         // **************************** Buscando dados ****************************
-        $getCon = new ModelBase();
-        $con = $getCon->getCon();
-        $quary = 'SELECT * FROM usuario WHERE login = :usuario LIMIT 1';
-        $select = $con->prepare($quary);
-
-        //link, valor a ser buscado
-        $select->bindValue(':usuario', $login);
-        //Executando quary
-        $select->execute();
+        try {
+            $getCon = new ModelBase();
+            $con = $getCon->getCon();
+            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $quary = 'SELECT * FROM usuario WHERE login = :usuario LIMIT 1';
+            $select = $con->prepare($quary);
+            //link, valor a ser buscado
+            $select->bindValue(':usuario', $login);
+            //Executando quary
+            $select->execute();
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
 
         if ($select->rowCount())
         {

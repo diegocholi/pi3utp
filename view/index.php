@@ -30,6 +30,8 @@
                 </div>
                 <!--Alinhado ao centro-->
                 <div class = "col-md-8 colorCenter table-overflow-responsive" >
+                    
+                    <br>
                     <?php
                     include_once 'confProvas.php';
                     include_once 'cadastroEquipes.php';

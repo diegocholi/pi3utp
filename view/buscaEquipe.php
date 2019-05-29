@@ -10,6 +10,7 @@ if (isset($_SESSION['user']))
     ?>
     <div class="buscaEquipe" >    
         <h1> Busca Equipe</h1>
+        <div class="divMsgBuscaEquipe"  align="center"></div>
         <div class = "row">
             <div class = "col-md-10 col-md-offset-3 table-overflow-responsive">
                 <form action="javascript:void(0)"  class="form-inline" method="post">
@@ -21,9 +22,8 @@ if (isset($_SESSION['user']))
                 <a href="#" onclick="navigate('cadastroEquipe');"  class="btn btn-primary">Adicionar Equipe ➕</a>
             </div>
         </div>
-        <div class="divMsg"></div>
         <br>
-        <table class="table table-bordered ">
+        <table class="table table-bordered tableAluno">
             <thead>
                 <tr>
                     <th>ID Equipe</th>

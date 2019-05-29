@@ -7,6 +7,10 @@ function getConfDB()
     $user = "root";
     $password = "";
 
-    $con = new PDO('mysql:host=' . $host . '; dbname=' . $dbName, $user, $password);
-    return $con;
+    try {
+        $con = new PDO('mysql:host=' . $host . '; dbname=' . $dbName, $user, $password);
+        return $con;
+    } catch (PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
 }

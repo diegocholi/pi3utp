@@ -76,7 +76,7 @@ CREATE TABLE pista (
 );
 
 /* Relacionamentos */
-ALTER TABLE Aluno ADD CONSTRAINT FK_Aluno_9 FOREIGN KEY (idEquipe) REFERENCES equipe(idEquipe);
+ALTER TABLE Aluno ADD CONSTRAINT FK_Aluno_9 FOREIGN KEY (idEquipe) REFERENCES equipe(idEquipe) ON DELETE CASCADE;
 ALTER TABLE prova ADD CONSTRAINT FK_prova_11 FOREIGN KEY (idEquipe) REFERENCES equipe(idEquipe);
 ALTER TABLE velocidade ADD CONSTRAINT FK_velocidade_18 FOREIGN KEY (idProva) REFERENCES prova(idProva);
 ALTER TABLE tracao ADD CONSTRAINT FK_tracao_20 FOREIGN KEY (idProva) REFERENCES prova(idProva);

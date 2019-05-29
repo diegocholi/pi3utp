@@ -20,11 +20,11 @@ function getEquipe()
             cash: false,
             type: 'POST',
             beforeSend: function () {
-                $('.divMsg').html('Carregando ..');
+                $('.divMsgBuscaEquipe').html('Carregando ..');
             },
             success: function (response) {
                 // alert(response);
-                $('.divMsg').html(''); // Resetando Mensagens
+                $('.divMsgBuscaEquipe').html(''); // Resetando Mensagens
                 $html = '';
                 try {
                     response = JSON.parse(response); //Convertendo dados para Json
@@ -65,13 +65,51 @@ function getEquipe()
     return false;
 }
 function deleteEquipe(value) {
-    alert(value);
+    // $('.buscaEquipe').css('display', 'none');
+    $html = '';
+    $html += '<form>';
+    $html += '<label>';
+    $html += 'Deseja realmente deletar a equipe de ID: ' + value;
+    $html += '</label>';
+    $html += '<br>';
+    $html += '<input type="button" class="btn btn-danger cancelaDelete" value = "cancela"/>';
+    $html += '&nbsp;';
+    $html += '<input type="button" class="btn btn-success confirmDelete" value = "confirma"/>';
+    $html += '</form>';
+    $('.divMsgBuscaEquipe').html($html);
+
+    $('.cancelaDelete').click(function () {
+        $('.divMsgBuscaEquipe').html('');
+    });
+
+    $('.confirmDelete').click(function () {
+        $.ajax({
+            url: '../model/CrudEquipeModel.php',
+            data: {
+                idEquipeDelete: value
+            },
+            cash: false,
+            type: 'POST',
+            success: function () {
+                $('#tableAluno').html('');
+                $('.divMsgBuscaEquipe').html(' <label>Equipe deletada com sucesso ! </label>');
+
+                setTimeout(function () {
+                    $('.divMsgBuscaEquipe').html('');
+                }, 2000);
+
+            }
+        });
+        $('.divMsgBuscaEquipe').html('');
+    });
 }
 
 function editaEquipe(value) {
-    alert(value);
+    // $('.buscaEquipe').css('display', 'none');
+    $('.divMsgBuscaEquipe').html('Editar Equipe: ' + value);
 }
 
 function detalheEquipe(value) {
-    alert(value);
+    // $('.buscaEquipe').css('display', 'none');
+    $('.divMsgBuscaEquipe').html('detalhe Equipe: ' + value);
 }

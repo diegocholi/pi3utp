@@ -67,10 +67,10 @@ function btnSaveEquipes() {
     });
 
     document.getElementById('nomeEquipe').value !== "" ? nomeEquipe = document.getElementById('nomeEquipe').value : camposNulos = true;
-    document.getElementById('nomeCarro').value !== "" ? nomeCarro = document.getElementById('nomeCarro').value : camposNulos = true;
     document.getElementById('cor').value !== "" ? cor = document.getElementById('cor').value : camposNulos = true;
-    document.getElementById('inputGroupFile').value !== "" ? inputGroupFile = document.getElementById('inputGroupFile').value : camposNulos = true;
     document.getElementById('campoDefault').value !== "" ? campoDefault = document.getElementById('campoDefault').value : camposNulos = true;
+    inputGroupFile = document.getElementById('inputGroupFile').value;
+    nomeCarro = document.getElementById('nomeCarro').value;
 
     if (camposNulos === true) {
         erroCamposNulosMensage();
