@@ -7,8 +7,6 @@ var imported = document.createElement('script');
 imported.src = '../mensagens/mensage.js';
 document.head.appendChild(imported);
 
-var originalState = $("#imendaHTMLaluno").clone(); // Salvando o estado original da DIV de id imendaHTMLaluno
-
 var idControl = 0; // Controlador de ID dos campos
 var idContador = 0; // Contador de campo
 
@@ -93,18 +91,19 @@ function btnSaveEquipes() {
         var dataStringJson = JSON.stringify(dataJson);
 
         $.ajax({
-            url: '../model/CadastroEquipeModel.php',
+            url: '../model/CrudEquipeModel.php',
             data: {
-                myDataJson: dataStringJson
+                insertEquipeJson: dataStringJson
             },
             type: 'POST',
+            cash: false,
             success: function (response) {
                 alert(response);
                 document.getElementById('nomeEquipe').value = "";
                 document.getElementById('nomeCarro').value = "";
                 document.getElementById('inputGroupFile').value = "";
                 document.getElementById('campoDefault').value = "";
-                $("#imendaHTMLaluno").replaceWith(originalState.clone()); // Voltando o estado original da div com id imendaHTMLaluno
+                getStateDiv('#imendaHTMLaluno', 'buscaEquipeOriginalState');
             }
         });
     }

@@ -11,60 +11,69 @@ document.head.appendChild(imported);
 function getEquipe()
 {
     int: maxColumn = 5; // Numero máximo de colunas 
-    setStateDiv('#tableAluno'); //resetando status da div com id tableAluno
+    // $('#tableAluno').remove();
+    getStateDiv('#tableAluno', 'buscaEquipeOriginalState'); //resetando status da div com id tableAluno
     if (document.getElementById('buscaEquipe').value !== '') {
         $.ajax({
-            url: '../model/BuscaEquipeModel.php',
+            url: '../model/CrudEquipeModel.php',
             data: {
                 buscaEquipe: document.getElementById('buscaEquipe').value
             },
+            cash: false,
             type: 'POST',
+            beforeSend: function () {
+                $('.divMsg').html('Carregando ..');
+            },
             success: function (response) {
-                alert(response);
+                // alert(response);
+                $('.divMsg').html(''); // Resetando Mensagens
+                $html = '';
+                try {
+                    response = JSON.parse(response); //Convertendo dados para Json
+                    for (i = 0; i < response.length; i++) {
+                        $html += '<tr>';
+                        $html += '<td>';
+                        $html += response[i].idEquipe;
+                        $html += '</td>';
+                        $html += '<td>';
+                        $html += response[i].nomeEquipe;
+                        $html += '</td>';
+                        $html += '<td>';
+                        $html += '<a href="#" class="btn btn-info" onclick="detalheEquipe(' + response[i].idEquipe + ');">';
+                        $html += 'Detalhes';
+                        $html += '</a>';
+                        $html += '</td>';
+                        $html += '<td>';
+                        $html += '<a href="#" class="btn" onclick="editaEquipe(' + response[i].idEquipe + ');">';
+                        $html += '✏️';
+                        $html += '</a>';
+                        $html += '</td>';
+                        $html += '<td>';
+                        $html += '<a href="#" class="btn" onclick="deleteEquipe(' + response[i].idEquipe + ');">';
+                        $html += '❌';
+                        $html += '</a>';
+                        $html += ' </button>';
+                        $html += '</td>';
+                        $html += '</tr>';
+                    }
+                    $("#tableAluno").append($html);
+                } catch (e) {
+                    alert('Não existem dados cadastrados !');
+                }
+
             }
         });
     }
-
-    var array = {
-        '0': '1',
-        '1': '2',
-        '2': '3',
-        '3': '4',
-        '4': '5',
-        '5': '6',
-        '6': '7'
-    };
-    var len = Object.getOwnPropertyNames(array).length; //Definindo número de linhas do obj JSON
-    for (i = 0; i < len; i++) {
-        $("#tableAluno").append(" <tr>\n\
-                                            <td>  " + array[i] + " </td> \n\
-                                            <td>" + "Equipe: " + array[i] + "</td> \n\
-                                            <td> Membro 1 , Membros 2, Membros 3 </td> \n\
-                                            <td>  <a href='#' onclick='editaEquipe();'> ✏️ <a></td>\n\
-                                            <td> \n\
-                                                <button href='#' id='deleteEquipe" + array[i] + "' value=" + array[i] + "> \n\
-                                                        ❌ \n\
-                                            </td>\n\
-                                        </tr> ");
-    }
-
-    //Chamando a função de leitura de campos para delete
-    deleteEquipe(array);
-
     return false;
 }
-
-function deleteEquipe(array) {
-    var len = Object.getOwnPropertyNames(array).length;
-    for (i = 0; i < len; i++) {// inicializando  Todos os IDs que foi gerado na busca para possível delete
-        var idEquipe = '#deleteEquipe' + array[i];
-        $(idEquipe).click(function () {
-            idEquipe = $(this).val();
-            alert(idEquipe);
-        });
-    }
+function deleteEquipe(value) {
+    alert(value);
 }
 
-function editaEquipe() {
-    alert('Test Edita equipe');
+function editaEquipe(value) {
+    alert(value);
+}
+
+function detalheEquipe(value) {
+    alert(value);
 }

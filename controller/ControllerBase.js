@@ -3,16 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var originalState;
-function saveStateDiv(divId) {
-    originalState = $(divId).clone();
+var buscaEquipeOriginalState;
+var cadastroEquipeOriginalState;
+function saveStateDiv(divId, varName) {
+    switch (varName) {
+        case 'buscaEquipeOriginalState':
+            buscaEquipeOriginalState = $(divId).clone();
+            break;
+        case 'cadastroEquipeOriginalState':
+            cadastroEquipeOriginalState = $(divId).clone();
+            break;
+        default:
+            break;
+    }
 }
 
-function setStateDiv(divId) {
-    $(divId).replaceWith(originalState.clone()); // Voltando o estado original da div com id buscaEquipe
+function getStateDiv(divId, varName) {
+    switch (varName) {
+        case 'buscaEquipeOriginalState':
+            $(divId).replaceWith(buscaEquipeOriginalState.clone()); // Voltando o estado original da div com id buscaEquipe
+            break;
+        case 'cadastroEquipeOriginalState':
+            $(divId).replaceWith(cadastroEquipeOriginalState.clone()); // Voltando o estado original da div com id buscaEquipe
+            break;
+        default:
+            break;
+    }
 }
 
-var saveStatusBuscaEquipe = false;
 function navigate(navigate) {
     $(".buscaEquipe").css("display", "none");
     $(".cadastroEquipes").css("display", "none");
@@ -25,7 +43,6 @@ function navigate(navigate) {
 
     switch (navigate) {
         case  "provaVelocidade":
-
             $(".provaVelocidade").css("display", "block");
             break;
         case "provaPista":
@@ -38,12 +55,11 @@ function navigate(navigate) {
             $(".provaRampa").css("display", "block");
             break;
         case "buscaEquipes":
-            if (saveStatusBuscaEquipe === false) {
-                saveStateDiv('#tableAluno');
-                saveStatusBuscaEquipe = true;
+            if (!buscaEquipeOriginalState) {
+                saveStateDiv('#tableAluno', 'buscaEquipeOriginalState');
                 $(".buscaEquipe").css("display", "block");
             } else {
-                setStateDiv('#tableAluno');
+                getStateDiv('#tableAluno', 'buscaEquipeOriginalState');
                 $(".buscaEquipe").css("display", "block");
             }
             break;
@@ -51,6 +67,7 @@ function navigate(navigate) {
             $(".configuracaoProvas").css("display", "block");
             break;
         case "cadastroEquipe":
+            saveStateDiv('#imendaHTMLaluno', 'cadastroEquipeOriginalState');
             $(".cadastroEquipes").css("display", "block");
             break;
         default:

@@ -1,5 +1,4 @@
 <?php
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -22,18 +21,18 @@ if (isset($_SESSION['user']))
                 <a href="#" onclick="navigate('cadastroEquipe');"  class="btn btn-primary">Adicionar Equipe ➕</a>
             </div>
         </div>
+        <div class="divMsg"></div>
         <br>
         <table class="table table-bordered ">
             <thead>
                 <tr>
                     <th>ID Equipe</th>
                     <th>Nome Equipe</th>
-                    <th>Membros Equipe</th>
+                    <th>Membros Detalhes</th>
                     <th align="center">Editar</th>
                     <th align="center">Deletar</th>
                 </tr>
             </thead>
-
             <tbody align="center"  id="tableAluno">
 
             </tbody>
@@ -44,10 +43,9 @@ if (isset($_SESSION['user']))
     <script src="../controller/buscaEquipeController.js"></script>
     <!-- Chamando script cadastro de equipes <EXTEND> -->
     <script src="../controller/cadastroEquipesController.js"></script>
-    
-    
-    <?php
 
+
+    <?php
 }
 else
 {
