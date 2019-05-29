@@ -29,7 +29,7 @@ $(document).ready(function () {
             var idCampo = "campoExtra" + idControl;
             var idForm = "formExtra" + idControl;
             var html = "";
-            html += "<div style='margin-top: 8px;' class='input-group' id='" + idForm + "'>";
+            html += "<div style='margin-top: 8px;' class='input-group divAlunoNovoCampo' id='" + idForm + "'>";
             html += "<input type='text' name='" + idCampo + "' id='" + idCampo + "' class='form-control alunoNovoCampo' placeholder='Insira o nome do " + tipo + "'/>";
             html += "<span class='input-group-btn'>";
             html += "<button class='btn' onclick='exclui(" + idForm + ")' type='button'><span class='fa fa-trash'>❌</span></button>";
@@ -103,7 +103,7 @@ function btnSaveEquipes() {
                 document.getElementById('nomeCarro').value = "";
                 document.getElementById('inputGroupFile').value = "";
                 document.getElementById('campoDefault').value = "";
-                getStateDiv('#imendaHTMLaluno', 'buscaEquipeOriginalState');
+                $('.divAlunoNovoCampo').remove();
             }
         });
     }

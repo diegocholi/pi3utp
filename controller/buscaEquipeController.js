@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 var imported = document.createElement('script');
 imported.src = '../controller/ControllerBase.js';
 document.head.appendChild(imported);
 
 function getEquipe()
 {
+    $('#tableAluno').html('');
     int: maxColumn = 5; // Numero máximo de colunas 
-    // $('#tableAluno').remove();
-    getStateDiv('#tableAluno', 'buscaEquipeOriginalState'); //resetando status da div com id tableAluno
     if (document.getElementById('buscaEquipe').value !== '') {
         $.ajax({
             url: '../model/CrudEquipeModel.php',
