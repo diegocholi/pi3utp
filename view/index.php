@@ -30,7 +30,7 @@
                 </div>
                 <!--Alinhado ao centro-->
                 <div class = "col-md-8 colorCenter table-overflow-responsive" >
-                    
+                    <div class="msgIndex"></div>
                     <br>
                     <?php
                     include_once 'confProvas.php';

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 function navigate(navigate) {
+
+    $('.msgIndex').html(''); //Resetando Div Index mensagens
+
     $(".buscaEquipe").css("display", "none");
     $(".cadastroEquipes").css("display", "none");
     $(".configuracaoProvas").css("display", "none");

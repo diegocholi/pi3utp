@@ -45,7 +45,6 @@ $(document).ready(function () {
 });
 
 function btnSaveEquipes() {
-    var mensagem = "";
     var novosCampos = [];
     var camposNulos = false;
 
@@ -110,4 +109,3 @@ function btnSaveEquipes() {
 
     novosCampos = [];
 }
-

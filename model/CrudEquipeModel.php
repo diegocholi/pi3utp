@@ -97,6 +97,23 @@ class CrudEquipeModel {
         // mysql_close($this->con);
     }
 
+    function editEquipeDB($objEditEquipe)
+    {
+        try {
+            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $this->con->prepare('UPDATE equipe SET nomeEquipe = :newNome WHERE idEquipe = :id');
+
+            $stmt->execute(array(
+                ':id' => $objEditEquipe->idEquipe,
+                ':newNome' => $objEditEquipe->editEquipeField
+            ));
+            // echo $stmt->rowCount();
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+        // mysql_close($this->con);
+    }
+
 }
 
 if (isset($_POST['buscaEquipe']))
@@ -122,3 +139,17 @@ if (isset($_POST['idEquipeDelete']))
     $deleteEquipeDB->deleteEquipe($idEquipeDelete);
 }
 
+if (isset($_POST['idEditEquipeSetCampos']))
+{
+    $idEquipeEdit = $_POST['idEditEquipe'];
+    echo $idEquipeEdit;
+    $equipeEdit = new CrudEquipeModel();
+    $equipeEdit->editEquipeDB($idEquipeEdit);
+}
+
+if (isset($_POST['editEquipe']))
+{
+    $objEditEquipe = json_decode($_POST['editEquipe']);
+    $editEquipe = new CrudEquipeModel();
+    $editEquipe->editEquipeDB($objEditEquipe);
+}

@@ -11,6 +11,7 @@ if (isset($_SESSION['user']))
     <div class="buscaEquipe" >    
         <h1> Busca Equipe</h1>
         <div class="divMsgBuscaEquipe"  align="center"></div>
+        <br>
         <div class = "row">
             <div class = "col-md-10 col-md-offset-3 table-overflow-responsive">
                 <form action="javascript:void(0)"  class="form-inline" method="post">
@@ -28,9 +29,9 @@ if (isset($_SESSION['user']))
                 <tr>
                     <th>ID Equipe</th>
                     <th>Nome Equipe</th>
-                    <th>Membros Detalhes</th>
-                    <th align="center">Editar</th>
-                    <th align="center">Deletar</th>
+                    <th class="detalhesEquipetd">Membros Detalhes</th>
+                    <th align="center" class="editarEquipetd">Editar</th>
+                    <th align="center" class="deletarEquipetd" >Deletar</th>
                 </tr>
             </thead>
             <tbody align="center"  id="tableAluno">
