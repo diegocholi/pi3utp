@@ -245,7 +245,7 @@ function detalheEquipe(value) {
                     html += ' ';
                     html += '</label>';
 
-                    html += '<input type="text" value=" ' + response[i].nomeAluno + ' " class="form-control text-center col-8">';
+                    html += '<input type="text" value=" ' + response[i].nomeAluno + ' " class="form-control text-center col-8 alunoEditEquipe">';
                     html += '</div>';
                 }
                 html += '<br>';
@@ -272,11 +272,27 @@ function detalheEquipe(value) {
             }
 
             $('.salvarEditarAlunosEquipe').click(function () {
-                JSON.stringify(response);
+                var alunoEditEquipe = [];
+
+                $('.alunoEditEquipe').each(function () {
+                    if ($(this).is(":visible")) {
+                        if ($(this).val().length < 1) {
+                            camposNulos = true;
+                        } else {
+                            alunoEditEquipe.push($(this).val());
+                        }
+                    }
+                });
+
+                var alunoEditEquipeJson = {
+                    'equipe': alunoEditEquipe
+                };
+                var dataStringJson = JSON.stringify(alunoEditEquipeJson);
+
                 $.ajax({
                     url: '../model/CrudAlunoEquipeModel.php',
                     data: {
-                        editAlunosEquipe: response
+                        editAlunosEquipe: dataStringJson
                     },
                     cash: false,
                     type: 'POST',

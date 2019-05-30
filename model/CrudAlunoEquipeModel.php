@@ -79,5 +79,8 @@ if (isset($_POST['idDetalheEquipe']))
 if (isset($_POST['editAlunosEquipe']))
 {
     $obj = json_decode($_POST['editAlunosEquipe']);
-    echo $obj->nomeAluno;
+    foreach ($obj->equipe as $value)
+    {
+        echo $value;
+    }
 }
