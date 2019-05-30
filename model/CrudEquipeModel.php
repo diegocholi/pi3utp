@@ -11,6 +11,8 @@
  * @author diego
  */
 include_once 'ModelBase.php';
+include_once 'CrudAlunoEquipeModel.php';
+
 include_once '../mensagens/mensage.php';
 
 class CrudEquipeModel {
@@ -26,24 +28,47 @@ class CrudEquipeModel {
 
     function buscaEquipeDB($objBuscaEquipe)
     {
-        // **************************** Buscando dados ****************************
-        $quary = 'SELECT * FROM `equipe` WHERE nomeEquipe LIKE :nomeEquipe';
-        $select = $this->con->prepare($quary);
 
-        //link, valor a ser buscado
-        $select->bindValue(':nomeEquipe', '%' . $objBuscaEquipe . '%');
-        //Executando quary
-        $select->execute();
-        if ($select->rowCount())
+        if (is_numeric($objBuscaEquipe))
         {
-            $resultado = $select->fetchAll(PDO::FETCH_ASSOC); //PDO::FETCH_CLASS
-            echo json_encode($resultado, JSON_PRETTY_PRINT);
+            $quary = 'SELECT * FROM `equipe` WHERE idEquipe = :idEquipe';
+            $select = $this->con->prepare($quary);
+
+            //link, valor a ser buscado
+            $select->bindValue(':idEquipe', $objBuscaEquipe);
+            //Executando quary
+            $select->execute();
+            if ($select->rowCount())
+            {
+                $resultado = $select->fetchAll(PDO::FETCH_ASSOC); //PDO::FETCH_CLASS
+                echo json_encode($resultado, JSON_PRETTY_PRINT);
+            }
+            else
+            {
+                echo 'ERRO na consulta';
+            }
         }
         else
         {
-            echo 'ERRO na consulta';
+            // **************************** Buscando dados ****************************
+            $quary = 'SELECT * FROM `equipe` WHERE nomeEquipe LIKE :nomeEquipe';
+            $select = $this->con->prepare($quary);
+
+            //link, valor a ser buscado
+            $select->bindValue(':nomeEquipe', '%' . $objBuscaEquipe . '%');
+            //Executando quary
+            $select->execute();
+            if ($select->rowCount())
+            {
+                $resultado = $select->fetchAll(PDO::FETCH_ASSOC); //PDO::FETCH_CLASS
+                echo json_encode($resultado, JSON_PRETTY_PRINT);
+            }
+            else
+            {
+                echo 'ERRO na consulta';
+            }
+            // mysql_close($this->con);
         }
-        // mysql_close($this->con);
     }
 
     function addEquipeDB($objCadastroEquipe)
@@ -60,24 +85,8 @@ class CrudEquipeModel {
         if ($insert->rowCount())
         {
             $idEquipe = $this->con->lastInsertId();
-
-            $query = "INSERT INTO aluno (nomeAluno, idEquipe) VALUES (:nomeAluno, :idEquipe)";
-            $insert = $this->con->prepare($query);
-            $insert->bindParam(':nomeAluno', $objCadastroEquipe->campoDefault, PDO::PARAM_STR, 15);
-            $insert->bindParam(':idEquipe', $idEquipe, PDO::PARAM_INT, 15);
-
-            //Executando a quary
-            $insert->execute();
-            foreach ($objCadastroEquipe->alunoNovoCampo as $value)
-            {
-                $query = "INSERT INTO aluno (nomeAluno, idEquipe) VALUES (:nomeAluno, :idEquipe)";
-                $insert = $this->con->prepare($query);
-                $insert->bindParam(':nomeAluno', $value, PDO::PARAM_STR, 15);
-                $insert->bindParam(':idEquipe', $idEquipe, PDO::PARAM_INT, 15);
-
-                //Executando a quary
-                $insert->execute();
-            }
+            $addAlunosEquipe = new CrudAlunoEquipeModel();
+            $addAlunosEquipe->addAlunoEquipe($idEquipe, $objCadastroEquipe);
             cadastroSucessMensage();
         }
         // mysql_close($this->con);

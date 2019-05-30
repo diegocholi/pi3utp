@@ -6,6 +6,7 @@
 var imported = document.createElement('script');
 imported.src = '../controller/ControllerBase.js';
 document.head.appendChild(imported);
+var statusTableAluno;
 
 function getEquipe()
 {
@@ -13,8 +14,6 @@ function getEquipe()
     $('.deletarEquipetd').html('Deletar');
     $('.editarEquipetd').html('Editar');
     $('.detalhesEquipetd').html('Membros Detalhes');
-
-
     int: maxColumn = 5; // Numero máximo de colunas 
     if (document.getElementById('buscaEquipe').value !== '') {
         $.ajax({
@@ -82,11 +81,9 @@ function deleteEquipe(value) {
     html += '<input type="button" class="btn btn-success confirmDelete" value = "confirma"/>';
     html += '</form>';
     $('.divMsgBuscaEquipe').html(html);
-
     $('.cancelaDelete').click(function () {
         $('.divMsgBuscaEquipe').html('');
     });
-
     $('.confirmDelete').click(function () {
         $.ajax({
             url: '../model/CrudEquipeModel.php',
@@ -98,11 +95,9 @@ function deleteEquipe(value) {
             success: function () {
                 $('#tableAluno').html('');
                 $('.divMsgBuscaEquipe').html(' <label>Equipe deletada com sucesso ! </label>');
-
                 setTimeout(function () {
                     $('.divMsgBuscaEquipe').html('');
                 }, 2000);
-
             }
         });
         $('.divMsgBuscaEquipe').html('');
@@ -110,62 +105,50 @@ function deleteEquipe(value) {
 }
 
 function editaEquipe(idEquipe) {
+    statusTableAluno = $("#tableAluno").clone();
     $("#tableAluno").html('');
     $('.deletarEquipetd').html('');
     $('.editarEquipetd').html('');
     $('.detalhesEquipetd').html('');
-
     var html = '';
     html += '<tr>';
-
     html += '<td>';
     html += idEquipe;
     html += '</td>';
-
     html += '<td>';
     html += '<input type="text" placeholder="Digite o novo nome da equipe" class="form-control text-center editEquipeField" align = "center">';
     html += '</td>';
-
     html += '<td>';
     html += 'Edição da equipe: ' + idEquipe;
     html += '</td>';
-
     html += '<td>';
     html += '<a href="#" class="btn btn-danger cancelaEdicao">';
     html += 'cancelar';
     html += '</a>';
     html += '</td>';
-
     html += '<td>';
     html += '<a href="#" class="btn btn-success confirmEditarEquipe">';
     html += 'confirma';
     html += '</a>';
     html += '</td>';
-
     html += '</tr>';
-
     $("#tableAluno").append(html);
 
     $('.cancelaEdicao').click(function () {
         $('.deletarEquipetd').html('Deletar');
         $('.editarEquipetd').html('Editar');
         $('.detalhesEquipetd').html('Membros Detalhes');
-        $("#tableAluno").html('');
+        $("#tableAluno").replaceWith(statusTableAluno.clone());
     });
 
     $('.confirmEditarEquipe').click(function () {
         if ($('.editEquipeField').val()) {
 
-
-            // alert($('.editEquipeField').val());
-
             var newEquipeName = {
                 idEquipe: idEquipe,
                 editEquipeField: $('.editEquipeField').val()
             };
-
             var newEquipeNameJson = JSON.stringify(newEquipeName);
-
             $.ajax({
                 url: '../model/CrudEquipeModel.php',
                 data: {
@@ -177,10 +160,38 @@ function editaEquipe(idEquipe) {
                     alert("Nome da equipe Atualizado com sucesso !");
                 }
             });
+
             $('.editarEquipetd').html('Editar');
             $('.deletarEquipetd').html('Deletar');
             $('.detalhesEquipetd').html('Membros Detalhes');
-            $("#tableAluno").html('');
+
+            var html = '';
+            html += '<tr>';
+            html += '<td>';
+            html += idEquipe;
+            html += '</td>';
+            html += '<td>';
+            html += $('.editEquipeField').val();
+            html += '</td>';
+            html += '<td>';
+            html += '<a href="#" class="btn btn-info" onclick="detalheEquipe(' + idEquipe + ');">';
+            html += 'Detalhes';
+            html += '</a>';
+            html += '</td>';
+            html += '<td>';
+            html += '<button value=' + $('.editEquipeField').val() + ' class="btn nameEquipe ' + idEquipe + ' " onclick="editaEquipe(' + idEquipe + ');">';
+            html += '✏️';
+            html += '</button>';
+            html += '</td>';
+            html += '<td>';
+            html += '<a href="#" class="btn" onclick="deleteEquipe(' + idEquipe + ');">';
+            html += '❌';
+            html += '</a>';
+            html += ' </button>';
+            html += '</td>';
+            html += '</tr>';
+            $("#tableAluno").html(html);
+
         } else {
             alert('Campo não informado !');
         }
@@ -188,16 +199,14 @@ function editaEquipe(idEquipe) {
 }
 
 function detalheEquipe(value) {
-    // $('.buscaEquipe').css('display', 'none');
     $.ajax({
-        url: '../model/AlunoEquipeModel.php',
+        url: '../model/CrudAlunoEquipeModel.php',
         data: {
             idDetalheEquipe: value
         },
         cash: false,
         type: 'POST',
         success: function (response) {
-            $('#tableAluno').html('');
             $('.buscaEquipe').css('display', 'none');
             $('.divMsgBuscaEquipe').html(''); // Resetando Mensagens
             var html = '';
@@ -206,35 +215,83 @@ function detalheEquipe(value) {
                 var html = '';
                 html += '<br>';
 
+                html += '<button class="btn btn-dark text-light voltarBuscaEquipe" title="Voltar">';
+                html += '<img src="../fotoSistema/voltar.png" width="20" height="20"> ';
+                html += '<strong>';
+                html += 'voltar';
+                html += '</strong>';
+                html += '</button>';
+
                 html += '<h1>';
                 html += 'Detalhes Equipe';
                 html += '</h1>';
 
-                html += '<label class="col-2">';
+                html += '<div class="row">';
+
+                html += '<div class="col align-self-start">'; //Label de alinhamento
+                html += ' ';
+                html += '</div>';
+
+                html += '<div class="col align-self-center table-warning">';
+
+                html += '<label>';
                 html += '<h4> Alunos </h4>';
                 html += '</label>';
 
                 for (i = 0; i < response.length; i++) {
                     html += '<div class="row">';
-                    html += '<label class="col-2">';
+
+                    html += '<label class="col-2">';//Label de alinhamento
                     html += ' ';
                     html += '</label>';
+
                     html += '<input type="text" value=" ' + response[i].nomeAluno + ' " class="form-control text-center col-8">';
                     html += '</div>';
                 }
                 html += '<br>';
 
-                html += '<button type="submit" class="btn btn-primary" > ';
+                html += '<button type="submit" class="btn btn-success salvarEditarAlunosEquipe" algin="left"> ';
                 html += 'salvar';
                 html += '</button>';
 
-                $('.msgIndex').html(html);
+                html += '&nbsp;';
 
+                html += '<br>';
+
+                html += '</div>';
+
+                html += '<div class="col align-self-end> ';
+                html += ' ';
+                html += '</div>" ';
+
+                html += '</div>';
+
+                $('.msgIndex').html(html);
             } catch (e) {
                 alert('Não existem dados cadastrados !');
             }
+
+            $('.salvarEditarAlunosEquipe').click(function () {
+                JSON.stringify(response);
+                $.ajax({
+                    url: '../model/CrudAlunoEquipeModel.php',
+                    data: {
+                        editAlunosEquipe: response
+                    },
+                    cash: false,
+                    type: 'POST',
+                    success: function (response) {
+                        alert(response);
+                    }
+                });
+            });
+
+            $('.voltarBuscaEquipe').click(function () {
+                $('.msgIndex').html('');
+                $('.buscaEquipe').css('display', 'block');
+            });
+
         }
     });
 
-    $('.divMsgBuscaEquipe').html('detalhe Equipe: ' + value);
 }

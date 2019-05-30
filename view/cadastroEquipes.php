@@ -35,6 +35,7 @@ if (isset($_SESSION['user']))
             </div>
 
             <!--Cor do para mostragem no grafico-->
+
             <div class="form-group row">
                 <label for="example-color-input" class="col-2 col-form-label">Cor</label>
                 <div class="col-10">
@@ -53,6 +54,7 @@ if (isset($_SESSION['user']))
                     </label>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="example-color-input" class="col-2 col-form-label">Nome Aluno*</label>
                 <div class="col-10">

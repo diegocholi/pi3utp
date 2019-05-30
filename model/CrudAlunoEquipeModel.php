@@ -14,7 +14,7 @@
 include_once 'ModelBase.php';
 include_once '../mensagens/mensage.php';
 
-class AlunoEquipeModel {
+class CrudAlunoEquipeModel {
 
     private $con;
     private $getCon;
@@ -23,6 +23,27 @@ class AlunoEquipeModel {
     {
         $this->getCon = new ModelBase();
         $this->con = $this->getCon->getCon();
+    }
+
+    function addAlunoEquipe($idEquipe, $objCadastroEquipe)
+    {
+        $query = "INSERT INTO aluno (nomeAluno, idEquipe) VALUES (:nomeAluno, :idEquipe)";
+        $insert = $this->con->prepare($query);
+        $insert->bindParam(':nomeAluno', $objCadastroEquipe->campoDefault, PDO::PARAM_STR, 15);
+        $insert->bindParam(':idEquipe', $idEquipe, PDO::PARAM_INT, 15);
+
+        //Executando a quary
+        $insert->execute();
+        foreach ($objCadastroEquipe->alunoNovoCampo as $value)
+        {
+            $query = "INSERT INTO aluno (nomeAluno, idEquipe) VALUES (:nomeAluno, :idEquipe)";
+            $insert = $this->con->prepare($query);
+            $insert->bindParam(':nomeAluno', $value, PDO::PARAM_STR, 15);
+            $insert->bindParam(':idEquipe', $idEquipe, PDO::PARAM_INT, 15);
+
+            //Executando a quary
+            $insert->execute();
+        }
     }
 
     function getAlunoEquipe($idEquipe)
@@ -51,6 +72,12 @@ class AlunoEquipeModel {
 
 if (isset($_POST['idDetalheEquipe']))
 {
-    $getDetalheEquipe = new AlunoEquipeModel();
+    $getDetalheEquipe = new CrudAlunoEquipeModel();
     $getDetalheEquipe->getAlunoEquipe($_POST['idDetalheEquipe']);
+}
+
+if (isset($_POST['editAlunosEquipe']))
+{
+    $obj = json_decode($_POST['editAlunosEquipe']);
+    echo $obj->nomeAluno;
 }
