@@ -19,7 +19,7 @@ function exclui(id) {
 
 $(document).ready(function () {
 
-    $("#btnAdicionaAluno").click(function (e) {
+    $("#btnAdicionaAluno").unbind().bind('click',function (e) {
         e.preventDefault();
         var tipoCampo = "aluno";
         adicionaCampo(tipoCampo);

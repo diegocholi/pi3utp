@@ -46,6 +46,25 @@ class CrudAlunoEquipeModel {
         }
     }
 
+    function editAlunoEquipe($idEquipe, $objCadastroEquipe)
+    {
+        try {
+            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $stmt = $this->con->prepare('UPDATE aluno SET nomeAluno = :nome WHERE idEquipe = :id');
+
+            foreach ($objCadastroEquipe->equipeEdit as $value)
+            {
+                $stmt->execute(array(
+                    ':id' => $idEquipe,
+                    ':nome' => $value
+                ));
+            }
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
     function getAlunoEquipe($idEquipe)
     {
         // **************************** Buscando dados ****************************
@@ -79,8 +98,13 @@ if (isset($_POST['idDetalheEquipe']))
 if (isset($_POST['editAlunosEquipe']))
 {
     $obj = json_decode($_POST['editAlunosEquipe']);
-    foreach ($obj->equipe as $value)
-    {
-        echo $value;
-    }
+
+    $editEquipe = new CrudAlunoEquipeModel();
+    $editEquipe->editAlunoEquipe($obj->idEquipe, $obj);
+}
+
+if (isset($_POST['addAlunoEquipeEdit']))
+{
+    $obj = json_decode($_POST['addAlunoEquipeEdit']);
+    echo $obj->addAlunoEquipeEdit;
 }

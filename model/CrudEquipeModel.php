@@ -162,3 +162,4 @@ if (isset($_POST['editEquipe']))
     $editEquipe = new CrudEquipeModel();
     $editEquipe->editEquipeDB($objEditEquipe);
 }
+
