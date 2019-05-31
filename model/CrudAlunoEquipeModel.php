@@ -46,23 +46,22 @@ class CrudAlunoEquipeModel {
         }
     }
 
-    function editAlunoEquipe($idEquipe, $objCadastroEquipe)
+    function editAlunoEquipe($idAlunoEquipe, $valueCadastroEquipe)
     {
-        try {
-            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo $idAlunoEquipe;
+        echo $valueCadastroEquipe;
 
-            $stmt = $this->con->prepare('UPDATE aluno SET nomeAluno = :nome WHERE idEquipe = :id');
-
-            foreach ($objCadastroEquipe->equipeEdit as $value)
-            {
-                $stmt->execute(array(
-                    ':id' => $idEquipe,
-                    ':nome' => $value
-                ));
-            }
-        } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
-        }
+//        try {
+//            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//
+//            $stmt = $this->con->prepare('UPDATE aluno SET nomeAluno = :nome WHERE idAluno = :id');
+//            $stmt->execute(array(
+//                ':id' => $idAlunoEquipe,
+//                ':nome' => $valueCadastroEquipe
+//            ));
+//        } catch (PDOException $e) {
+//            echo 'Error: ' . $e->getMessage();
+//        }
     }
 
     function getAlunoEquipe($idEquipe)
@@ -99,8 +98,9 @@ if (isset($_POST['editAlunosEquipe']))
 {
     $obj = json_decode($_POST['editAlunosEquipe']);
 
+    // echo $obj->idAlunoEquipe . $obj->equipeEdit;
     $editEquipe = new CrudAlunoEquipeModel();
-    $editEquipe->editAlunoEquipe($obj->idEquipe, $obj);
+    $editEquipe->editAlunoEquipe($obj->idAlunoEquipe, $obj->equipeEdit);
 }
 
 if (isset($_POST['addAlunoEquipeEdit']))
