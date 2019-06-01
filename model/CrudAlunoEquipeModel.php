@@ -48,20 +48,17 @@ class CrudAlunoEquipeModel {
 
     function editAlunoEquipe($idAlunoEquipe, $valueCadastroEquipe)
     {
-        echo $idAlunoEquipe;
-        echo $valueCadastroEquipe;
+        try {
+            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-//        try {
-//            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//
-//            $stmt = $this->con->prepare('UPDATE aluno SET nomeAluno = :nome WHERE idAluno = :id');
-//            $stmt->execute(array(
-//                ':id' => $idAlunoEquipe,
-//                ':nome' => $valueCadastroEquipe
-//            ));
-//        } catch (PDOException $e) {
-//            echo 'Error: ' . $e->getMessage();
-//        }
+            $stmt = $this->con->prepare('UPDATE aluno SET nomeAluno = :nome WHERE idAluno = :id');
+            $stmt->execute(array(
+                ':id' => $idAlunoEquipe,
+                ':nome' => $valueCadastroEquipe
+            ));
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
     }
 
     function getAlunoEquipe($idEquipe)
@@ -86,6 +83,17 @@ class CrudAlunoEquipeModel {
         // mysql_close($this->con);
     }
 
+    function addNewAlunoEquipe($idEquipe, $objCadastroEquipe)
+    {
+        $query = "INSERT INTO aluno (nomeAluno, idEquipe) VALUES (:nomeAluno, :idEquipe)";
+        $insert = $this->con->prepare($query);
+        $insert->bindParam(':idEquipe', $idEquipe, PDO::PARAM_INT, 15);
+        $insert->bindParam(':nomeAluno', $objCadastroEquipe, PDO::PARAM_STR, 15);
+
+        //Executando a quary
+        $insert->execute();
+    }
+
 }
 
 if (isset($_POST['idDetalheEquipe']))
@@ -97,8 +105,6 @@ if (isset($_POST['idDetalheEquipe']))
 if (isset($_POST['editAlunosEquipe']))
 {
     $obj = json_decode($_POST['editAlunosEquipe']);
-
-    // echo $obj->idAlunoEquipe . $obj->equipeEdit;
     $editEquipe = new CrudAlunoEquipeModel();
     $editEquipe->editAlunoEquipe($obj->idAlunoEquipe, $obj->equipeEdit);
 }
@@ -106,5 +112,6 @@ if (isset($_POST['editAlunosEquipe']))
 if (isset($_POST['addAlunoEquipeEdit']))
 {
     $obj = json_decode($_POST['addAlunoEquipeEdit']);
-    echo $obj->addAlunoEquipeEdit;
+    $addAlunoEquipe = new CrudAlunoEquipeModel();
+    $addAlunoEquipe->addNewAlunoEquipe($obj->idEquipe, $obj->nomeAluno);
 }
