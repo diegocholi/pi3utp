@@ -6,6 +6,7 @@
 var imported = document.createElement('script');
 imported.src = '../controller/ControllerBase.js';
 document.head.appendChild(imported);
+
 var statusTableAluno;
 
 function getEquipe()

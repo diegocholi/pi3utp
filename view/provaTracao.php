@@ -23,17 +23,13 @@ if (isset($_SESSION['user']))
             <div class="form-group row">
                 <label for="exampleSelect2" class="col-2 col-form-label">Selecione a equipe</label>
                 <div class="col-10">
-                    <select multiple class="form-control" id="exampleSelect2">
-                        <option align = "center">Equipe 1</option>
-                        <option align = "center">Equipe 2</option>
-                        <option align = "center">Equipe 3</option>
-                        <option align = "center">Equipe 4</option>
-                        <option align = "center">Equipe 5</option>
+                    <select multiple class="form-control allEquipesProvaTracao">
+
                     </select>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary buttonProvaTracao">Enviar</button>
         </form>
     </div>
     <?php

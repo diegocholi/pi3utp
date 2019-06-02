@@ -28,27 +28,7 @@ class CrudEquipeModel {
 
     function buscaEquipeDB($objBuscaEquipe)
     {
-
-        if (is_numeric($objBuscaEquipe))
-        {
-            $quary = 'SELECT * FROM `equipe` WHERE idEquipe = :idEquipe';
-            $select = $this->con->prepare($quary);
-
-            //link, valor a ser buscado
-            $select->bindValue(':idEquipe', $objBuscaEquipe);
-            //Executando quary
-            $select->execute();
-            if ($select->rowCount())
-            {
-                $resultado = $select->fetchAll(PDO::FETCH_ASSOC); //PDO::FETCH_CLASS
-                echo json_encode($resultado, JSON_PRETTY_PRINT);
-            }
-            else
-            {
-                echo 'ERRO na consulta';
-            }
-        }
-        else
+        if ($objBuscaEquipe)
         {
             // **************************** Buscando dados ****************************
             $quary = 'SELECT * FROM `equipe` WHERE nomeEquipe LIKE :nomeEquipe';
@@ -67,8 +47,26 @@ class CrudEquipeModel {
             {
                 echo 'ERRO na consulta';
             }
-            // mysql_close($this->con);
         }
+        else
+        {
+            // **************************** Buscando dados ****************************
+            $quary = 'SELECT idEquipe, nomeEquipe FROM `equipe`';
+            $select = $this->con->prepare($quary);
+
+            //Executando quary
+            $select->execute();
+            if ($select->rowCount())
+            {
+                $resultado = $select->fetchAll(PDO::FETCH_ASSOC); //PDO::FETCH_CLASS
+                echo json_encode($resultado, JSON_PRETTY_PRINT);
+            }
+            else
+            {
+                echo 'ERRO na consulta';
+            }
+        }
+        // mysql_close($this->con);
     }
 
     function addEquipeDB($objCadastroEquipe)
@@ -163,3 +161,9 @@ if (isset($_POST['editEquipe']))
     $editEquipe->editEquipeDB($objEditEquipe);
 }
 
+if (isset($_POST['getAllEquipes']))
+{
+    $objBuscaEquipe = '';
+    $getAllEquipes = new CrudEquipeModel();
+    $getAllEquipes->buscaEquipeDB($objBuscaEquipe);
+}
