@@ -3,8 +3,12 @@
     <head>
 
         <?php
+        //Includes
         session_start();
         include_once 'required/includes.php';
+        include_once 'modals.php';
+        include_once 'required/Menu.php';
+        include_once 'required/Rodape.php';
         ?>
         <title>PI lll</title>
     </head>
@@ -13,11 +17,7 @@
         <?php
         if (isset($_SESSION['user']))
         {
-            //Includes
 
-            include_once 'required/Menu.php';
-            include_once 'required/Rodape.php';
-            include_once 'modals.php';
             $menu = new Menu();
             $menu->MenuPrincipal();
             ?>

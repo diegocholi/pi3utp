@@ -277,12 +277,15 @@ function writeAlunosEquipeScreen(response, value) {
     html += '</div>';
     $('.msgIndex').html(html);
 
+    jQuery.noConflict();
+    
     $('.editAlunoEquipe').addClass(function () {
         $(this).unbind().bind('click', function () {
             var idAluno = $(this).val();
             $('.modal-title').html('Edita Aluno');
             $('.modal-body').html('<input type = "text" class="form-control editaAlunoEquipeEdit" placeholder="Digite o nome do aluno">');
-            $('#exampleModalCenter').modal('show');
+            
+            window.$('.exampleModalCenter').modal('show');
 
             var modalFooter = '<button type="button" class="btn btn-secondary" data-dismiss="modal">cancelar</button>';
             modalFooter += '<button type="button" class="btn btn-primary buttonEditiAlunoEquipe">salvar</button>';

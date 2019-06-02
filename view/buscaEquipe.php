@@ -42,7 +42,6 @@ if (isset($_SESSION['user']))
     </div>
 
     <script src="../controller/buscaEquipeController.js"></script>
-    <!-- Chamando script cadastro de equipes <EXTEND> -->
     <script src="../controller/cadastroEquipesController.js"></script>
 
 
