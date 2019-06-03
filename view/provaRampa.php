@@ -1,4 +1,5 @@
 <?php
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +9,6 @@
 if (isset($_SESSION['user']))
 {
     ?>
-
     <div class="provaRampa">    
         <h1>Prova Rampa</h1>
 
@@ -17,7 +17,7 @@ if (isset($_SESSION['user']))
             <div class="form-group row">
                 <label for="example-number-input" class="col-2 col-form-label">Distância(m)</label>
                 <div class="col-10">
-                    <input class="form-control" type="number" id="example-number-input">
+                    <input class="form-control distanciaProvaRampa" type="number" id="example-number-input">
                 </div>
             </div>
 
@@ -34,6 +34,7 @@ if (isset($_SESSION['user']))
         </form>
     </div>
     <?php
+
 }
 else
 {

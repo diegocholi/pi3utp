@@ -16,6 +16,7 @@
 <!--CSS-->
 <link rel="stylesheet" href="required/css/style.css">
 <link rel="stylesheet" href="../controller/ControllerBase.css">
+
 <!--JavaScript-->
 <script src="required/bootstrap/js/bootstrap.min.js" ></script>
 <script src="required/bootstrap/js/bootstrap.bundle.js"></script>
@@ -24,3 +25,4 @@
 <script src="../controller/ControllerBase.js"></script>
 <script src="../controller/loginController.js"></script>
 <script src="../controller/buscaEquipeController.js"></script>
+<script src="../controller/provaControllerBase.js"></script>

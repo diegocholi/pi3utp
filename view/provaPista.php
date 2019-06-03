@@ -9,7 +9,6 @@
 if (isset($_SESSION['user']))
 {
     ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <div class="provaPista">    
         <h1>Prova Pista & Manobrabilidade</h1>
         <form action="javascript:void(0)">

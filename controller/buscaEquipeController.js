@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+// jQuery.noConflict(); //Resolvendo conflito de arquivos duplicados Jquery
+
 var imported = document.createElement('script');
 imported.src = '../controller/ControllerBase.js';
 document.head.appendChild(imported);
@@ -277,14 +279,13 @@ function writeAlunosEquipeScreen(response, value) {
     html += '</div>';
     $('.msgIndex').html(html);
 
-    jQuery.noConflict();
-    
+
     $('.editAlunoEquipe').addClass(function () {
         $(this).unbind().bind('click', function () {
             var idAluno = $(this).val();
             $('.modal-title').html('Edita Aluno');
             $('.modal-body').html('<input type = "text" class="form-control editaAlunoEquipeEdit" placeholder="Digite o nome do aluno">');
-            
+
             window.$('.exampleModalCenter').modal('show');
 
             var modalFooter = '<button type="button" class="btn btn-secondary" data-dismiss="modal">cancelar</button>';

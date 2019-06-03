@@ -34,14 +34,14 @@ CREATE TABLE Aluno (
 
 /* Tabela: (null) */
 CREATE TABLE prova (
-    idProva Integer not null,
+    idProva Integer not null auto_increment,
     idEquipe Integer not null,
    PRIMARY KEY (idProva)
 );
 
 /* Tabela: (null) */
 CREATE TABLE rampa (
-    idProvaRampa Integer not null,
+    idProvaRampa Integer not null auto_increment,
     distancia Float(10,2),
     idProva Integer not null,
    PRIMARY KEY (idProvaRampa)

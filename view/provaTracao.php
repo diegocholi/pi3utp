@@ -16,7 +16,7 @@ if (isset($_SESSION['user']))
             <div class="form-group row">
                 <label for="example-number-input" class="col-2 col-form-label">Peso(g) </label>
                 <div class="col-10">
-                    <input class="form-control" type="number" id="example-number-input">
+                    <input class="form-control pesoProvaTracao" type="number" id="example-number-input">
                 </div>
             </div>
 
