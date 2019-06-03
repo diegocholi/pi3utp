@@ -3,7 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
+
 function navigate(navigate) {
+
+    var imported = document.createElement('script');
+    imported.src = '../controller/provaControllerBase.js';
+    document.head.appendChild(imported);
 
     $('.msgIndex').html(''); //Resetando Div Index mensagens
 

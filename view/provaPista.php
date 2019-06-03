@@ -1,5 +1,4 @@
 <?php
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,7 +15,7 @@ if (isset($_SESSION['user']))
             <div class="form-group row">
                 <label for="example-number-input" class="col-2 col-form-label">Tempo(s) </label>
                 <div class="col-10">
-                    <input class="form-control" type="number" id="example-number-input">
+                    <input class="form-control tempoProvaPista" type="number" id="example-number-input">
                 </div>
             </div>
             <div class="form-group row">
@@ -32,7 +31,8 @@ if (isset($_SESSION['user']))
             <div class="form-group row">
                 <label for="exampleFormControlSelect1" class="col-2 col-form-label">Furar o cone</label>
                 <div class="col-10">
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select class="form-control penalidadeFurarConeProvaPista" id="exampleFormControlSelect1">
+                        <option>0</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -60,7 +60,8 @@ if (isset($_SESSION['user']))
             <div class="form-group row">
                 <label for="exampleFormControlSelect1" class="col-2 col-form-label">Bater</label>
                 <div class="col-10">
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select class="form-control penalidadeBaterProvaPista" id="exampleFormControlSelect1">
+                        <option>0</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -88,7 +89,8 @@ if (isset($_SESSION['user']))
             <div class="form-group row">
                 <label for="exampleFormControlSelect1" class="col-2 col-form-label">Sair Fora da Pista </label>
                 <div class="col-10">
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select class="form-control penalidadeSairForaProvaPista" id="exampleFormControlSelect1">
+                        <option>0</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -116,14 +118,13 @@ if (isset($_SESSION['user']))
                 <div class="col-7">
                     <!-- div ajuste tela-->
                 </div>
-                <small id="emailHelp" class="form-text text-muted">O valor em segundos será acrecentado a equipe caso houver penalidade.</small>
+                <small id="emailHelp" class="form-text text-muted" align="right">O valor em segundos será acrecentado a equipe caso houver penalidade.</small>
             </div>
 
             <button type="submit" class="btn btn-primary buttonProvaPista">Enviar</button>
         </form>
     </div>
     <?php
-
 }
 else
 {

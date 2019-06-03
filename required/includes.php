@@ -25,4 +25,5 @@
 <script src="../controller/ControllerBase.js"></script>
 <script src="../controller/loginController.js"></script>
 <script src="../controller/buscaEquipeController.js"></script>
-<script src="../controller/provaControllerBase.js"></script>
+
+<!--<script src="../controller/provaControllerBase.js"></script>-->

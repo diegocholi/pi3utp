@@ -7,14 +7,14 @@
  */
 
 /**
- * Description of CrudProvaVelocidade
+ * Description of CrudProvaPista
  *
  * @author diego
  */
 include_once 'ModelBase.php';
 include_once '../mensagens/mensage.php';
 
-class CrudProvaVelocidade {
+class CrudProvaPista {
 
     //put your code here
 
@@ -27,10 +27,8 @@ class CrudProvaVelocidade {
         $this->con = $this->getCon->getCon();
     }
 
-    function insertProvaVelocidade($idEquipe, $velocidadeMS, $velocidadeKMH)
+    function insertProvaPista($idEquipe, $tempo, $furarCone, $bater, $sairFora)
     {
-        // echo $idEquipe . ' ' . $velocidadeMS . ' ' . $velocidadeKMH;
-
         $query = 'INSERT INTO prova (idEquipe) VALUES (:idEquipe)';
         $insert = $this->con->prepare($query);
         $insert->bindParam(':idEquipe', $idEquipe, PDO::PARAM_INT, 15);
@@ -40,11 +38,13 @@ class CrudProvaVelocidade {
         if ($insert->rowCount())
         {
             $idProva = $this->con->lastInsertId();
-            $query = 'INSERT INTO velocidade (KMH, MS, idProva) VALUES (:KH, :MS, :idProva)';
+            $query = 'INSERT INTO pista (tempo, furarCone, bater, sairPista, idProva) VALUES (:tempo, :furarCone, :bater, :sairPista, :idProva)';
             $insert = $this->con->prepare($query);
 
-            $insert->bindParam(':KH', $velocidadeKMH, PDO::PARAM_STR, 15);
-            $insert->bindParam(':MS', $velocidadeMS, PDO::PARAM_STR, 15);
+            $insert->bindParam(':tempo', $tempo, PDO::PARAM_STR, 15);
+            $insert->bindParam(':furarCone', $furarCone, PDO::PARAM_STR, 15);
+            $insert->bindParam(':bater', $bater, PDO::PARAM_STR, 15);
+            $insert->bindParam(':sairPista', $sairFora, PDO::PARAM_STR, 15);
             $insert->bindParam(':idProva', $idProva, PDO::PARAM_INT, 15);
 
             //Executando a quary
@@ -55,14 +55,13 @@ class CrudProvaVelocidade {
 
 }
 
-if (isset($_POST['provaTracao']))
+if (isset($_POST['provaPista']))
 {
-    $obj = json_decode($_POST['provaTracao']);
-
-    if (isset($obj->idEquipe[0]) && isset($obj->velMS) && isset($obj->velKH))
+    $obj = json_decode($_POST['provaPista']);
+    if (isset($obj->idEquipe[0]) && isset($obj->tempo))
     {
-        $insertProvaVelocidade = new CrudProvaVelocidade();
-        $insertProvaVelocidade->insertProvaVelocidade($obj->idEquipe[0], $obj->velMS, $obj->velKH);
+        $addProvaPista = new CrudProvaPista();
+        $addProvaPista->insertProvaPista($obj->idEquipe[0], $obj->tempo, $obj->furarCone, $obj->bater, $obj->sairFora);
     }
     else
     {

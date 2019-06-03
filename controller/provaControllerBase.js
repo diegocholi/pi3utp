@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 $.ajax({
     url: '../model/CrudEquipeModel.php',
     data: {
@@ -72,11 +73,8 @@ $.ajax({
         });
 
         $('.buttonProvaVelocidade').unbind().bind('click', function () {
-            // alert($('.allEquipesProvaVelocidade').val()); // o valor que procuras é: e.target.value
             var velMS = $('.distanciaProvaVelocidade').val() / $('.tempoProvaVelocidade').val();
             var velKH = velMS * 3.6;
-//            alert('Velocidade(m/s): ' + velMS); // o valor que procuras é: e.target.value
-//            alert('Velocidade(k/h): ' + velKH); // o valor que procuras é: e.target.value
 
             var valuesForm = {
                 idEquipe: $('.allEquipesProvaVelocidade').val(),
@@ -95,15 +93,41 @@ $.ajax({
                 },
                 success: function (response) {
                     alert(response);
-//                    $('.pesoProvaTracao').val('');
-//                    $('.allEquipesProvaTracao').val('');
+                    $('.distanciaProvaVelocidade').val('');
+                    $('.tempoProvaVelocidade').val('');
+                    $('.allEquipesProvaVelocidade').val('');
                 }
             });
 
         });
 
         $('.buttonProvaPista').unbind().bind('click', function () {
-            alert($('.allEquipesProvaPista').val()); // o valor que procuras é: e.target.value
+            var formValues = {
+                'idEquipe': $('.allEquipesProvaPista').val(),
+                'tempo': $('.tempoProvaPista').val(),
+                'furarCone': $('.penalidadeFurarConeProvaPista').val(),
+                'bater': $('.penalidadeBaterProvaPista').val(),
+                'sairFora': $('.penalidadeSairForaProvaPista').val()
+            };
+
+            var formValuesJson = JSON.stringify(formValues);
+
+            $.ajax({
+                url: '../model/CrudProvaPista.php',
+                cache: false,
+                type: 'POST',
+                data: {
+                    provaPista: formValuesJson
+                },
+                success: function (response) {
+                    alert(response);
+                    $('.allEquipesProvaPista').val('');
+                    $('.tempoProvaPista').val('');
+                    $('.penalidadeFurarConeProvaPista').val('0');
+                    $('.penalidadeBaterProvaPista').val('0');
+                    $('.penalidadeSairForaProvaPista').val('0');
+                }
+            });
 
         });
     }
