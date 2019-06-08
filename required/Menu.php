@@ -32,7 +32,7 @@ class Menu {
                             ⚙️ Configurações
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a onclick="navigate('configuracaoProvas');" class="dropdown-item text-dark" target="_blank" href='javascript:void(0)'>📃 Provas</a>
+                            <a class="dropdown-item text-dark" target="_blank" href='../relatorio.php'>📃 Relatório</a>
                         </div>
                     </li>
                 </ul>

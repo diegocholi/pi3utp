@@ -29,7 +29,6 @@
         //lógica de saída
         if (isset($_GET['sair']))
         {
-            mysql_close($this->con);
             session_destroy();
         }
         ?>

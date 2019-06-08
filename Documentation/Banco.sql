@@ -2,10 +2,7 @@ CREATE DATABASE pi3utp;
 DROP DATABASE pi3utp;
 
 USE pi3utp;
-INSERT INTO usuario (login, senha) VALUES ('professor','c323b35027629db8189c5e15fe423e69');
-SELECT * FROM usuario;
 
-DROP TABLE usuario;
 /* Tabela: (null) */
 CREATE TABLE usuario (
     idUsuario Integer not null auto_increment,
@@ -21,6 +18,7 @@ CREATE TABLE equipe (
     nomeCarro Char(100),
     cor Char(8),
     foto Char(100),
+    notaEquipe INT DEFAULT 0,
    PRIMARY KEY (idEquipe)
 );
 
@@ -83,3 +81,21 @@ ALTER TABLE tracao ADD CONSTRAINT FK_tracao_20 FOREIGN KEY (idProva) REFERENCES 
 ALTER TABLE rampa ADD CONSTRAINT FK_rampa_21 FOREIGN KEY (idProva) REFERENCES prova(idProva);
 ALTER TABLE pista ADD CONSTRAINT FK_pista_22 FOREIGN KEY (idProva) REFERENCES prova(idProva);
 
+INSERT INTO usuario (login, senha) VALUES ('professor','c323b35027629db8189c5e15fe423e69');
+SELECT * FROM usuario;
+
+SELECT  E.idEquipe, nomeEquipe, distancia FROM rampa AS R INNER JOIN prova AS P ON R.idProva = P.idProva
+						INNER JOIN equipe AS E ON P.idEquipe = E.idEquipe ORDER BY distancia DESC;
+                        
+SELECT E.idEquipe, nomeEquipe, peso FROM tracao AS T INNER JOIN prova AS P ON T.idProva = P.idProva
+						INNER JOIN equipe AS E ON P.idEquipe = E.idEquipe ORDER BY peso DESC;
+                        
+SELECT E.idEquipe, nomeEquipe, KMH, MS FROM velocidade AS V INNER JOIN prova AS P ON V.idProva = P.idProva
+						INNER JOIN equipe AS E ON P.idEquipe = E.idEquipe ORDER BY MS DESC;
+                        
+SELECT E.idEquipe, nomeEquipe, (tempo +  furarCone + bater + SairPista) AS tempoLiquido, furarCone, bater, sairPista FROM pista AS PI INNER JOIN prova AS P ON PI.idProva = P.idProva
+						INNER JOIN equipe AS E ON P.idEquipe = E.idEquipe ORDER BY tempoLiquido ASC;                      
+
+UPDATE equipe SET notaEquipe = 0 WHERE notaEquipe >= 1 AND idEquipe BETWEEN 1 and 50;
+
+SELECT nomeEquipe, notaEquipe FROM equipe ORDER BY notaEquipe DESC;
